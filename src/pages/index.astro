@@ -1,11 +1,249 @@
 ---
-import Welcome from '../components/Welcome.astro';
+
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import img1 from '../assets/fondoMinimarket.jpg';
+import service1 from '../assets/ecommerce.png';
+import service2 from '../assets/landing-page.png';
+import service3 from '../assets/sistema-ventas.png';
+import service4 from '../assets/sistema-empresarial.png';
+import logo from '../assets/logoDevTech.png';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
 ---
-
 <Layout>
-	<Welcome />
+    <div class="relative min-h-screen w-full bg-[#00091d] overflow-x-hidden">
+        
+        <div class="fixed inset-0 z-0 h-full w-full bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-size-[20px_20px] pointer-events-none">
+        </div>
+        
+        <div class="relative z-10 flex flex-col w-full">
+            <div class="flex flex-row justify-between items-center mx-20 py-4 px-6">
+    <!-- Contenedor del logo para asegurar que no deforme el menú -->
+    <div class="shrink-0">
+        <Image src={logo} alt="DigitalDevTech" class="h-50 w-auto object-contain"/>
+    </div>
+
+    <!-- Menú de navegación -->
+    <nav class="bg-transparent w-full flex flex-row justify-center items-center space-x-12 px-6 md:px-20">
+        <span class="text-sm font-inter font-semibold text-white cursor-pointer hover:text-green-400 transition-colors">Inicio</span>
+        <span class="text-sm font-inter font-semibold text-white cursor-pointer hover:text-green-400 transition-colors">Nuestra tecnología</span>
+        <span class="text-sm font-inter font-semibold text-white cursor-pointer hover:text-green-400 transition-colors">Servicios</span>
+        <span class="text-sm font-inter font-semibold text-white cursor-pointer hover:text-green-400 transition-colors">Contactos</span>
+    </nav>
+
+    <!-- Botón de acción -->
+    <div class="shrink-0">
+        <button class="bg-green-600 hover:bg-green-700 py-3 px-6 text-white text-sm font-inter font-semibold rounded-lg transition-colors whitespace-nowrap">
+            Solicita una cotización
+        </button>
+    </div>
+</div>
+            
+
+            <section id="inicio" class="w-full max-w-7xl mx-auto px-6">
+                <div class="bg-transparent justify-center items-center flex flex-col mt-30 space-y-5 text-center">
+                    <p class="text-6xl font-inter font-semibold text-white">Tecnologia digital transformamos tu tiempo</p>
+                    <p class="text-5xl font-inter font-semibold text-sky-400">En Oro , DIGITAL DEV TECH</p>
+                    <span class="text-center font-inter text-md text-gray-300 w-120">Tu negocio con soluciones digitales ,mayor rendimiento a corto plazo ahorras procesos largos y tediosos dificiles de realizar</span>
+                    <div class="flex flex-row space-x-10 mt-40">
+                        <button class="p-2 bg-transparent border border-gray-500 font-inter text-sm text-gray-500 rounded-lg w-40">Tiempo</button>
+                        <button class="p-2 bg-transparent border border-gray-500 font-inter text-sm text-gray-500 rounded-lg w-40">Automatizacion</button>
+                        <button class="p-2 bg-transparent border border-gray-500 font-inter text-sm text-gray-500 rounded-lg w-40">Digitalizacion</button>
+                    </div>
+                    <div class="flex flex-row items-center space-x-6 mt-10 ">
+                        <hr class="text-white border border-gray-500 w-20">
+                        <span class="text-sm font-inter text-gray-500">Tecnologia avanzado para tu negocio</span>
+                        <hr class="text-white border border-gray-500 w-20">
+                    </div>
+                </div>  
+            </section>
+
+            <section id="nuestra-tecnologia" class="w-full bg-[#00091D] mt-20">
+                <div class="flex flex-col p-6 max-w-7xl mx-auto mt-10">
+                    <div class="flex flex-row items-center">
+                        <hr class="text-white border border-emerald-400 w-20">
+                        <p class="text-xl font-inter font-semibold text-emerald-400 ml-4">Nuestra Tecnologia</p>
+                    </div>
+                    <span class="font-inter text-sm text-gray-500 mt-5">Toda la informacion de nuestro trabajo</span>
+                    <span class="font-inter text-3xl font-semibold text-emerald-400 mt-5">TU TIEMPO ES ORO</span>
+                    <div class="flex flex-row space-x-10">
+                        <div class="flex flex-col space-y-5 w-xl">
+                            <div class="flex flex-col p-6 bg-slate-900 rounded-lg mt-4 space-y-5">
+                                <span class="text-lg text-white"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 717 717"><path fill="#32bd91" d="M358 717C160 717 0 557 0 359S160 0 358 0s359 161 359 359s-161 358-359 358m0-628C210 89 90 211 90 359s120 268 268 268s270-120 270-268S506 89 358 89m97 407l-127-93c-9-7-18-22-18-34V166c0-11 10-20 22-20h42c11 0 20 9 20 20v160c0 12 9 27 18 34l93 67c9 7 11 21 4 30l-25 34c-7 9-20 11-29 5"/></svg></span>
+                                <span class="font-inter text-md text-white">Ahorro inteligente</span>
+                                <span class="font-inter text-xs  text-gray-400 text-justify">Nuestra soluciones digitales a alcanze de todos los negocios ahorra tiempo,
+                                    liberando recursos valiosos y reduciendo costos operativos fijos para potenciar el crecimiento sostenible de tu negocio o empresa </span>
+                                <div class="flex flex-row space-x-1 justify-between">
+                                    <div class="flex flex-row space-x-1">
+                                        <span class="font-inter text-sm text-emerald-300 font-semibold">Taza de exito</span>
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="#32bd91" d="M16.175 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.175l-4.9-4.9q-.3-.3-.288-.7t.313-.7q.3-.275.7-.288t.7.288l6.6 6.6q.15.15.213.325t.062.375t-.062.375t-.213.325l-6.6 6.6q-.275.275-.687.275T11.3 19.3q-.3-.3-.3-.712t.3-.713z"/></svg></span>
+                                    </div>
+                                    <span class="font-inter text-md text-emerald-400 font-bold">99 %</span>
+                                </div>
+                            </div>
+                            <div class="flex flex-col p-6 bg-slate-900 rounded-lg space-y-5">
+                                <span class="text-lg text-white"><svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 2048 2048"><path fill="#32bd91" d="m2038 1488l-124 51q12 62 0 122l124 51l-49 119l-124-52q-17 25-38 47t-48 39l52 124l-119 49l-51-124q-30 6-61 6t-61-6l-51 124l-119-49l52-124q-51-35-86-86l-124 52l-49-119l124-51q-12-61 0-122l-124-51l49-119l124 52q35-51 86-86l-52-124l119-49l51 124q62-12 122 0l51-124l119 49l-52 124q25 17 47 38t39 48l124-52zm-365 289q37-15 63-42t41-62t14-72t-14-74q-14-36-41-63t-63-41q-35-15-73-15q-39 0-73 15q-36 14-63 41t-41 63q-31 73 0 146q14 36 41 63t63 41q73 31 146 0m375-1649v896h-128V640H128v1024h896v128H0V128zm-128 384V256H128v256zM896 1408v-140q-31-11-60-34l-121 69l-64-110l120-70q-3-16-3-35q0-18 3-35l-120-70l64-110l121 69q29-23 60-34V768h128v140q17 6 31 14t29 20l121-69l64 110l-120 70q3 17 3 35q0 19-3 35l120 70l-64 110l-121-69q-14 11-28 19t-32 15v140zm-32-320q0 40 28 68t68 28t68-28t28-68t-28-68t-68-28t-68 28t-28 68"/></svg></span>
+                                <span class="font-inter text-md text-white">Procesos mas cortos</span>
+                                <span class="font-inter text-xs  text-gray-400">Simplificamos flujos de trabajo diarios para reducir cuellos de botella, transformando tareas complejas en acciones rapidas de ejecutar. </span>
+                                <div class="flex flex-row space-x-1 justify-between">
+                                    <div class="flex flex-row space-x-1 ">
+                                        <span class="font-inter text-sm text-emerald-400 font-semibold">Taza de exito</span>
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="#32bd91" d="M16.175 13H5q-.425 0-.712-.288T4 12t.288-.712T5 11h11.175l-4.9-4.9q-.3-.3-.288-.7t.313-.7q.3-.275.7-.288t.7.288l6.6 6.6q.15.15.213.325t.062.375t-.062.375t-.213.325l-6.6 6.6q-.275.275-.687.275T11.3 19.3q-.3-.3-.3-.712t.3-.713z"/></svg></span>
+                                    </div>
+                                    <span class="text-md font-inter text-emerald-400 font-bold">99 %</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col bg-slate-900 rounded-lg p-8 mt-4 max-w-3xl mx-auto">
+                            <span class="text-emerald-400 font-semibold font-inter text-sm  tracking-wider">La mejor experiencia digital</span>
+                            <h3 class="text-emerald-400 font-bold font-inter text-lg lg:text-lg mt-2">
+                                Negocios Inteligentes con nuestras soluciones
+                            </h3>
+                            <p class="text-xs font-inter text-gray-400 mt-3 leading-relaxed">
+                                Todas nuestras soluciones en un solo lugar para expandir tu alcance y atraer más clientes en tiempo récord. Optimiza tu negocio y ahorra tiempo de calidad con servicios diseñados para crecer.
+                            </p>
+    
+                            <div class="flex flex-col items-center mt-4 w-full">
+                                <Image 
+                                    src={img1} 
+                                    alt="Dashboard de negocio inteligente" 
+                                    class="w-full max-w-2xl object-cover h-64 md:h-80 rounded-xl shadow-lg"
+                                />
+                                
+                                <div class="grid grid-cols-3 gap-6 sm:gap-12 mt-2 w-full max-w-xl justify-items-center border-t border-slate-800 ">
+                                    <div class="flex flex-col items-center text-center">
+                                        <span class="text-emerald-400 font-inter text-sm  font-bold">100% Eficaz</span>
+                                        <span class="text-xs font-inter text-gray-500 mt-0.5">Digital</span>
+                                    </div>
+                                    <div class="flex flex-col items-center text-center">
+                                        <span class="text-emerald-400 font-inter text-sm  font-bold">210+ Productos</span>
+                                        <span class="text-xs font-inter text-gray-500 mt-0.5">Ventas</span>
+                                    </div>
+                                    <div class="flex flex-col items-center text-center">
+                                        <span class="text-emerald-400 font-inter text-sm font-bold">100% Personalizado</span>
+                                        <span class="text-xs font-inter text-gray-500 mt-0.5">Software</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="servicios" class="w-full bg-[#00091D]">
+                <div class="flex flex-col p-6 max-w-7xl  mt-40 bg-slate-900 mx-auto rounded-lg">
+                    <div class="flex flex-row space-x-4 items-center">
+                        <hr class="text-emerald-400 border border-emerald-300 w-20">
+                        <span class="font-inter text-xl text-emerald-400">Nuestros servicios</span>
+                    </div>
+                    <p class="text-emerald-400 font-inter text-xl mt-5">Conoce los servicios que ofrecemos. </p>
+                    <div class="grid grid-cols-4 gap-x-5 mt-8 pb-5  ">
+                        <div class=" flex flex-col bg-slate-950 p-6 rounded-xl shadow-sm shadow-emerald-600 z-100  ">
+                            <span class="text-sm font-inter text-gray-500 mb-4">Catalogos/Productos</span>
+                            <Image src={service1} alt=" no se cargo la imagen" class=" w-60 h-auto object-cover rounded-lg" />
+                            <span class=" text-xs font-inter text-gray-500 mt-4">Muestra tus producto de manera rapida y organizada</span>
+                            <hr class=" text-gray-500 border border-slate-900 w-full my-10">
+                            <span class="text-gray-300 font-inter text-xs mb-5">Incluye</span>
+                            <ul class=" list-disc text-xs font-inter text-slate-500 mx-5">
+                                <li>Pagina con tus productos.</li>
+                                <li>QR redireccionado a tu whatshapp.</li>
+                                <li>Carrito de Compras.</li>
+                                <li>De 20 a 30 productos.</li>
+                            </ul>
+                            <button class=" p-2 bg-emerald-600 rounded-xl text-gray-200 font-inter text-xs  mt-8 cursor-pointer">Mas informacion</button>
+                        </div>
+                        <div class=" flex flex-col bg-slate-950 p-6 rounded-xl shadow-sm shadow-emerald-600 z-100 ">
+                            <span class="text-sm font-inter text-gray-500 mb-4">Lading Page/Pagina web</span>
+                            <Image src={service2} alt=" no se cargo la imagen" class=" w-60 h-auto object-cover rounded-lg" />
+                            <span class=" text-xs font-inter text-gray-500 mt-4">Haz que tu negocio sea conocido promociona tus servicios.</span>
+                            <hr class=" text-gray-500 border border-slate-900 w-full my-10">
+                            <span class="text-gray-300 font-inter text-xs mb-5">Incluye</span>
+                            <ul class=" list-disc text-xs font-inter text-slate-500 mx-5">
+                                <li>Lading page/ pagina web.</li>
+                                <li>Hosting / dominio.</li>
+                                <li>Soporte tecnico 3 meses.</li>
+                                <li>Boton redireccion a whatsapp.</li>
+                            </ul>
+                            <button class=" p-2 bg-emerald-600 rounded-xl text-gray-200 font-inter text-xs  mt-8 cursor-pointer">Mas informacion</button>
+                        </div>
+                        <div class=" flex flex-col bg-slate-950 p-6 rounded-xl shadow-sm shadow-emerald-600 z-100 ">
+                            <span class="text-sm font-inter text-gray-500 mb-4">Sistemas medianos</span>
+                            <Image src={service3} alt=" no se cargo la imagen" class=" w-60 h-auto object-cover rounded-lg" />
+                            <span class=" text-xs font-inter text-gray-500 mt-4">Servicio de software totalmente funcional y completo.</span>
+                            <hr class=" text-gray-500 border border-slate-900 w-full my-10">
+                            <span class="text-gray-300 font-inter text-xs mb-5">Incluye</span>
+                            <ul class=" list-disc text-xs font-inter text-slate-500 mx-5">
+                                <li>Software mediano.</li>
+                                <li>Hosting / dominio.</li>
+                                <li>Soporte tecnico 3 meses.</li>
+                                <li>Boton redireccion a whatsapp.</li>
+                            </ul>
+                            <button class=" p-2 bg-emerald-600 rounded-xl text-gray-200 font-inter text-xs  mt-8 cursor-pointer">Mas informacion</button>
+                        </div>
+                        <div class=" flex flex-col bg-slate-950 p-6 rounded-xl shadow-sm shadow-emerald-600 z-100 ">
+                            <span class="text-sm font-inter text-gray-500 mb-4">Sistemas completos</span>
+                            <Image src={service4} alt=" no se cargo la imagen" class=" w-60 h-auto object-cover rounded-lg" />
+                            <span class=" text-xs font-inter text-gray-500 mt-4">Servicio completo software totalmente personalizado.</span>
+                            <hr class=" text-gray-500 border border-slate-900 w-full my-10">
+                            <span class="text-gray-300 font-inter text-xs mb-5">Incluye</span>
+                            <ul class=" list-disc text-xs font-inter text-slate-500 mx-5">
+                                <li>Software completo.</li>
+                                <li>Hosting / dominio.</li>
+                                <li>Soporte tecnico 3 meses.</li>
+                                <li>Boton redireccion a whatsapp.</li>
+                            </ul>
+                            <button class=" p-2 bg-emerald-600 rounded-xl text-gray-200 font-inter text-xs  mt-8 cursor-pointer">Mas informacion</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contactos" class="w-full bg-[#00091D]">
+
+                <div class="flex flex-col mt-20 max-w-7xl mx-auto ">
+                    <div class="flex flex-row items-center space-x-6 mt-5 mx-auto">
+                        <hr class="text-white border border-emerald-400 w-60">
+                        <span class="text-xl font-inter text-emerald-300">Contactos</span>
+                        <hr class="text-white border border-emerald-400 w-60">
+                    </div>
+                    <div class="flex flex-col space-x-20  mt-10 mb-20 bg-slate-900 rounded-lg   p-10">
+                    <span class="text-lg font-inter font-semibold text-emerald-400 mb-5">Escribenos a nuestro correo @</span>
+                    <div class="flex flex-col space-x-8 justify-start ">
+                        <div class="flex flex-col space-y-2 justify-end ">
+                            <label class=" text-sm font-inter text-gray-400">Correo electronico</label>
+                            <input type="text" class=" w-xs p-2 rounded-lg bg-slate-950 text-white placeholder:text-gray-700 font-inter text-xs focus:outline-none focus:ring-2 focus:ring-slate-800" placeholder=" correo electronico">
+                        </div>
+                        <div class="flex flex-col space-y-2  justify-center  items-start  ">
+                            <label class=" text-sm font-inter text-gray-400">Mensaje</label>
+                            <textarea cols="70" rows="3" class=" rounded-lg bg-slate-950 p-2 text-white focus:outline-none focus:ring-2 focus:ring-slate-800 font-inter text-sm placeholder:text-gray-700" placeholder="texto"></textarea>
+                        </div>
+                    </div>
+                    <button class=" bg-emerald-500 rounded-lg w-60 text-sm font-inter p-2  mt-10 font-semibold cursor-pointer text-white">Enviar Email</button>
+                    
+                </div>
+                </div>
+                
+            </section>
+            
+            <footer id="footer" class="w-full bg-slate-950 p-10">
+                <div class="flex flex-row justify-between items-center mx-20">
+                     <div class="shrink-0">
+                        <Image src={logo} alt="DigitalDevTech" class="h-50 w-auto object-contain"/>
+                    </div>
+                    <span class="text-white text-sm font-inter ">Derechos reservados Digital-devtech @</span>
+                    <div class="flex flex-col space-y-4">
+                        <span class="text-white font-inter text-xl ">Contactos</span>
+                        <div class="flex flex-row space-x-4">
+                            <span class="text-gray-400 font-inter text-sm">Email:</span>
+                            <span class=" text-white font-inter text-sm">jorgejano97@gmail.com</span>
+                        </div>
+                        <div class="flex flex-row space-x-2">
+                            <span class="text-gray-400 font-inter text-sm">Telefono:</span>
+                            <span class="text-white font-inter text-sm">71961698</span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
 </Layout>
