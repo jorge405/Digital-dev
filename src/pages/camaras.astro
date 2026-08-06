@@ -1,0 +1,197 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+// Importa aquí tus 3 imágenes para Negocio
+import bizImg1 from '../assets/fondoMinimarket.jpg';
+import bizImg2 from '../assets/sistema-empresarial.png';
+import bizImg3 from '../assets/sistema-ventas.png';
+
+// Importa aquí tus 3 imágenes para Casa / Hogar
+import homeImg1 from '../assets/ecommerce.png';
+import homeImg2 from '../assets/landing-page.png';
+import homeImg3 from '../assets/fondoMinimarket.jpg';
+---
+
+<Layout title="Cámaras de Seguridad - DigitalDevTech">
+  <main class="bg-black text-slate-100 min-h-screen">
+    
+    <!-- Barra superior con botón Volver -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
+      <a 
+        href="/" 
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 text-sky-400 hover:text-sky-300 hover:bg-slate-800 border border-sky-500/30 transition-all text-xs font-semibold shadow-sm hover:border-sky-500/60"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Volver a la página principal
+      </a>
+    </div>
+
+    <section id="camaras" class="py-12 sm:py-20 relative overflow-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Encabezado Principal -->
+      <div class="mb-16 text-center max-w-3xl mx-auto">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-slate-900 border border-sky-500/30 text-sky-400 text-xs font-mono uppercase tracking-widest mb-4">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Seguridad de Última Generación</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+          Instalación de <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-emerald-400 to-teal-300">Cámaras de Seguridad</span>
+        </h1>
+        <p class="text-slate-400 text-sm sm:text-base mt-4 leading-relaxed">
+          En <strong class="text-white">DigitalDevTech</strong> protegemos lo que más te importa. Diseñamos e instalamos sistemas de videovigilancia IP y alta definición adaptados a tus necesidades.
+        </p>
+      </div>
+
+      <div class="space-y-20">
+        
+        {/* SECCIÓN 1: INSTALACIÓN PARA TU NEGOCIO */}
+        <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 lg:p-10 relative overflow-hidden group hover:border-emerald-500/40 transition-all duration-300">
+          <div class="absolute -top-24 -right-24 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
+            <div class="lg:col-span-7 space-y-4">
+              <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-lg bg-emerald-950/80 border border-emerald-800/60 text-emerald-400 text-xs font-semibold">
+                <span>Soluciones Empresariales</span>
+              </div>
+              
+              <h2 class="text-2xl sm:text-4xl font-bold text-white">
+                Instalación para tu <span class="text-emerald-400">Negocio</span>
+              </h2>
+
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-medium">
+                Prioriza la seguridad de tu negocio con cámaras de seguridad de alta tecnología.
+              </p>
+
+              <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                Monitorea en tiempo real todas las áreas operativas, puntos de venta y accesos de tu empresa desde cualquier lugar a través de tu smartphone o computadora. Evita pérdidas, supervisa la atención al cliente y obtén grabaciones continuas en resolución Ultra HD con visión nocturna avanzada.
+              </p>
+
+              {/* Lista de características */}
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                <div class="flex items-center space-x-2 text-xs text-slate-300">
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span>Monitoreo 24/7 remoto</span>
+                </div>
+                <div class="flex items-center space-x-2 text-xs text-slate-300">
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span>Detección de movimiento e IA</span>
+                </div>
+                <div class="flex items-center space-x-2 text-xs text-slate-300">
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span>Respaldo en la nube y disco duro</span>
+                </div>
+                <div class="flex items-center space-x-2 text-xs text-slate-300">
+                  <span class="text-emerald-400 font-bold">✓</span>
+                  <span>Mantenimiento y soporte especializado</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Tarjeta destacada de negocio */}
+            <div class="lg:col-span-5 bg-slate-950/80 border border-slate-800 rounded-2xl p-5 flex flex-col justify-center space-y-4">
+              <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <span class="text-xs font-mono text-slate-400">COBERTURA COMERCIAL</span>
+                <span class="text-xs font-mono text-emerald-400">● ACTIVA</span>
+              </div>
+              <p class="text-xs text-slate-400">
+                Optimiza el control de inventario, entrada de personal y zonas de carga con cámaras resistentes al exterior e intemperie.
+              </p>
+              <a href="/#contactos" class="block text-center py-2.5 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-xs rounded-xl transition-all shadow-md shadow-emerald-500/20">
+                Cotizar para mi Negocio
+              </a>
+            </div>
+          </div>
+
+          {/* Grid de 3 Imágenes para Negocio */}
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-800/80">
+            <div class="overflow-hidden rounded-xl border border-slate-800 group-hover:border-slate-700 transition-colors">
+              <Image src={bizImg1} alt="Cámaras para locales comerciales" class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="overflow-hidden rounded-xl border border-slate-800 group-hover:border-slate-700 transition-colors">
+              <Image src={bizImg2} alt="Monitoreo empresarial de cámaras" class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="overflow-hidden rounded-xl border border-slate-800 group-hover:border-slate-700 transition-colors">
+              <Image src={bizImg3} alt="Sistema de videovigilancia para negocios" class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+          </div>
+        </div>
+
+
+        {/* SECCIÓN 2: INSTALACIÓN PARA CASA / HOGAR */}
+        <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 lg:p-10 relative overflow-hidden group hover:border-sky-500/40 transition-all duration-300">
+          <div class="absolute -top-24 -left-24 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
+            <div class="lg:col-span-7 space-y-4">
+              <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-lg bg-sky-950/80 border border-sky-800/60 text-sky-400 text-xs font-semibold">
+                <span>Protección Familiar</span>
+              </div>
+
+              <h2 class="text-2xl sm:text-4xl font-bold text-white">
+                Instalación de Cámaras para <span class="text-sky-400">Casa / Hogar</span>
+              </h2>
+
+              <p class="text-slate-300 text-sm sm:text-base leading-relaxed font-medium">
+                Prioriza la seguridad de tu familia con sistemas de protección inteligentes y discretos.
+              </p>
+
+              <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                Mantén la tranquilidad de tu hogar estés donde estés. Recibe alertas instantáneas en tu celular ante cualquier movimiento sospechoso en entradas, jardines o cocheras. Diseñamos instalaciones estéticas, sin cables a la vista y de fácil uso para toda la familia.
+              </p>
+
+              {/* Lista de características */}
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                <div class="flex items-center space-x-2 text-xs text-slate-300">
+                  <span class="text-sky-400 font-bold">✓</span>
+                  <span>Alertas en tiempo real al teléfono</span>
+                </div>
+                <div class="flex items-center space-x-2 text-xs text-slate-300">
+                  <span class="text-sky-400 font-bold">✓</span>
+                  <span>Visión nocturna a color y audio bidireccional</span>
+                </div>
+                <div class="flex items-center space-x-2 text-xs text-slate-300">
+                  <span class="text-sky-400 font-bold">✓</span>
+                  <span>Cámaras discretas para interior y exterior</span>
+                </div>
+                <div class="flex items-center space-x-2 text-xs text-slate-300">
+                  <span class="text-sky-400 font-bold">✓</span>
+                  <span>Instalación rápida y limpia</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Tarjeta destacada de hogar */}
+            <div class="lg:col-span-5 bg-slate-950/80 border border-slate-800 rounded-2xl p-5 flex flex-col justify-center space-y-4">
+              <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+                <span class="text-xs font-mono text-slate-400">PROTECCIÓN HOGAR</span>
+                <span class="text-xs font-mono text-sky-400">● 100% SEGURO</span>
+              </div>
+              <p class="text-xs text-slate-400">
+                Cuida de tus seres queridos, mascotas y bienes con equipos resistentes a todo clima y conectividad wifi de alta velocidad.
+              </p>
+              <a href="/#contactos" class="block text-center py-2.5 bg-sky-500 hover:bg-sky-400 text-black font-semibold text-xs rounded-xl transition-all shadow-md shadow-sky-500/20">
+                Cotizar para mi Hogar
+              </a>
+            </div>
+          </div>
+
+          {/* Grid de 3 Imágenes para Hogar */}
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-800/80">
+            <div class="overflow-hidden rounded-xl border border-slate-800 group-hover:border-slate-700 transition-colors">
+              <Image src={homeImg1} alt="Cámaras de seguridad para casas" class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="overflow-hidden rounded-xl border border-slate-800 group-hover:border-slate-700 transition-colors">
+              <Image src={homeImg2} alt="Monitoreo de hogar desde celular" class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="overflow-hidden rounded-xl border border-slate-800 group-hover:border-slate-700 transition-colors">
+              <Image src={homeImg3} alt="Instalación de cámaras residenciales" class="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
+
+
 import img1 from '../assets/fondoMinimarket.jpg';
 import service1 from '../assets/ecommerce.png';
 import service2 from '../assets/landing-page.png';
@@ -25,10 +27,11 @@ import logo from '../assets/logoDevTech.png';
       <header class="sticky top-4 z-50 my-4 backdrop-blur-md bg-slate-900/60 border border-slate-800/80 rounded-2xl px-6 py-3 flex items-center justify-between shadow-2xl shadow-emerald-950/20">
         <Image src={logo} alt="DigitalDevTech" class="h-10 w-56 object-cover" />
 
-        <nav class="hidden md:flex items-center space-x-1 bg-slate-950/50 p-1.5 rounded-xl border border-slate-800">
+        <nav class=" md:flex items-center space-x-1 bg-slate-950/50 p-1.5 rounded-xl border border-slate-800">
           <a href="#inicio" class="px-4 py-1.5 text-xs font-medium text-emerald-400 bg-slate-800/80 rounded-lg shadow-sm">Inicio</a>
           <a href="#nuestra-tecnologia" class="px-4 py-1.5 text-xs font-medium text-slate-400 hover:text-white transition-all">Nuestra tecnología</a>
           <a href="#servicios" class="px-4 py-1.5 text-xs font-medium text-slate-400 hover:text-white transition-all">Servicios</a>
+          <a href="/camaras" class="px-4 py-1.5 text-xs font-medium text-slate-400 hover:text-white transition-all">Instalación de cámaras</a>
           <a href="#contactos" class="px-4 py-1.5 text-xs font-medium text-slate-400 hover:text-white transition-all">Contactos</a>
         </nav>
 
@@ -66,7 +69,7 @@ import logo from '../assets/logoDevTech.png';
 
         {/* Hero Card Accent */}
         <div class="lg:col-span-5 relative">
-          <div class="absolute inset-0 bg-linear-to-tr from-emerald-500 to-sky-500 rounded-3xl blur-2xl opacity-20"></div>
+          <div class="absolute inset-0 bg-gradient-to-tr from-emerald-500 to-sky-500 rounded-3xl blur-2xl opacity-20"></div>
           <div class="relative bg-slate-900/90 border border-slate-800 rounded-3xl p-6 backdrop-blur-xl shadow-2xl">
             <div class="flex justify-between items-center pb-4 mb-4 border-b border-slate-800">
               <span class="text-xs font-mono text-slate-400">STATUS_SYSTEM</span>
@@ -95,8 +98,6 @@ import logo from '../assets/logoDevTech.png';
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-          
-          {/* Card 1 */}
           <div class="md:col-span-4 bg-slate-900/50 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between hover:border-emerald-500/40 transition-colors">
             <div>
               <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6">
@@ -111,7 +112,6 @@ import logo from '../assets/logoDevTech.png';
             </div>
           </div>
 
-          {/* Card 2 */}
           <div class="md:col-span-4 bg-slate-900/50 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between hover:border-emerald-500/40 transition-colors">
             <div>
               <div class="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 mb-6">
@@ -126,7 +126,6 @@ import logo from '../assets/logoDevTech.png';
             </div>
           </div>
 
-          {/* Card 3 (Feature Highlight Image) */}
           <div class="md:col-span-4 bg-slate-900/50 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between">
             <div>
               <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-800/40 px-2 py-0.5 rounded">LA MEJOR EXPERIENCIA DIGITAL</span>
@@ -153,7 +152,6 @@ import logo from '../assets/logoDevTech.png';
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -167,145 +165,82 @@ import logo from '../assets/logoDevTech.png';
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           
           {/* Servicio 1 */}
-         {/* Tarjeta de Servicio: Catálogos / Productos con Tabs en Alpine.js */}
-<div 
-  x-data="{ tab: 'linktree' }" 
-  class="bg-slate-900/40 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all group"
->
-  <div>
-    {/* Imagen superior */}
-    <div class="overflow-hidden rounded-xl mb-4 border border-slate-800 group-hover:border-slate-700">
-      <Image src={service1} alt="Catálogos/Productos" class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300" />
-    </div>
+          <div x-data="{ tab: 'linktree' }" class="bg-slate-900/40 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all group">
+            <div>
+              <div class="overflow-hidden rounded-xl mb-4 border border-slate-800 group-hover:border-slate-700">
+                <Image src={service1} alt="Catálogos/Productos" class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300" />
+              </div>
 
-    <h3 class="font-bold text-white text-base">Catálogos / Productos</h3>
-    <p class="text-xs text-slate-400 mt-1">Muestra tus productos de manera rápida y organizada.</p>
-    
-    {/* Selector de Pestañas */}
-    <div class="grid grid-cols-2 gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800/80 mt-4">
-      <button 
-        type="button"
-        @click="tab = 'linktree'" 
-        :class="tab === 'linktree' ? 'bg-emerald-500 text-black font-bold shadow-md shadow-emerald-500/20' : 'text-slate-400 hover:text-white font-medium'"
-        class="py-1.5 text-[11px] rounded-lg transition-all duration-200 cursor-pointer"
-      >
-        Linktree
-      </button>
+              <h3 class="font-bold text-white text-base">Catálogos / Productos</h3>
+              <p class="text-xs text-slate-400 mt-1">Muestra tus productos de manera rápida y organizada.</p>
+              
+              <div class="grid grid-cols-2 gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800/80 mt-4">
+                <button type="button" @click="tab = 'linktree'" :class="tab === 'linktree' ? 'bg-emerald-500 text-black font-bold shadow-md shadow-emerald-500/20' : 'text-slate-400 hover:text-white font-medium'" class="py-1.5 text-[11px] rounded-lg transition-all duration-200 cursor-pointer">Linktree</button>
+                <button type="button" @click="tab = 'tienda'" :class="tab === 'tienda' ? 'bg-emerald-500 text-black font-bold shadow-md shadow-emerald-500/20' : 'text-slate-400 hover:text-white font-medium'" class="py-1.5 text-[11px] rounded-lg transition-all duration-200 cursor-pointer">Tienda Online</button>
+              </div>
 
-      <button 
-        type="button"
-        @click="tab = 'tienda'" 
-        :class="tab === 'tienda' ? 'bg-emerald-500 text-black font-bold shadow-md shadow-emerald-500/20' : 'text-slate-400 hover:text-white font-medium'"
-        class="py-1.5 text-[11px] rounded-lg transition-all duration-200 cursor-pointer"
-      >
-        Tienda Online
-      </button>
-    </div>
+              <div x-show="tab === 'linktree'" class="mt-4 pt-3 border-t border-slate-800/80">
+                <p class="text-[11px] font-semibold text-emerald-400 mb-2">Incluye (Linktree):</p>
+                <ul class="text-[11px] text-slate-400 space-y-1.5">
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Link redes sociales.</li>
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Link WhatsApp Business.</li>
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Catálogo de productos.</li>
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Personalización a tu medida.</li>
+                </ul>
+              </div>
 
-    {/* Pestaña 1: Linktree (Visible por defecto) */}
-    <div 
-      x-show="tab === 'linktree'" 
-      x-transition:enter="transition ease-out duration-200"
-      x-transition:enter-start="opacity-0 translate-y-1"
-      x-transition:enter-end="opacity-100 translate-y-0"
-      class="mt-4 pt-3 border-t border-slate-800/80"
-    >
-      <p class="text-[11px] font-semibold text-emerald-400 mb-2">Incluye (Linktree):</p>
-      <ul class="text-[11px] text-slate-400 space-y-1.5">
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Link redes sociales.</li>
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Link WhatsApp Business.</li>
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Catálogo de productos.</li>
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Personalización a tu medida.</li>
-      </ul>
-    </div>
+              <div x-show="tab === 'tienda'" x-cloak class="mt-4 pt-3 border-t border-slate-800/80">
+                <p class="text-[11px] font-semibold text-emerald-400 mb-2">Incluye (Tienda Online):</p>
+                <ul class="text-[11px] text-slate-400 space-y-1.5">
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Página con tus productos.</li>
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> QR redireccionado a tu WhatsApp.</li>
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Carrito de Compras.</li>
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> De 20 a 30 productos.</li>
+                </ul>
+              </div>
+            </div>
 
-    {/* Pestaña 2: Tienda Online (Oculta hasta hacer clic en el botón) */}
-    <div 
-      x-show="tab === 'tienda'" 
-      x-cloak
-      x-transition:enter="transition ease-out duration-200"
-      x-transition:enter-start="opacity-0 translate-y-1"
-      x-transition:enter-end="opacity-100 translate-y-0"
-      class="mt-4 pt-3 border-t border-slate-800/80"
-    >
-      <p class="text-[11px] font-semibold text-emerald-400 mb-2">Incluye (Tienda Online):</p>
-      <ul class="text-[11px] text-slate-400 space-y-1.5">
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Página con tus productos.</li>
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> QR redireccionado a tu WhatsApp.</li>
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Carrito de Compras.</li>
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> De 20 a 30 productos.</li>
-      </ul>
-    </div>
-  </div>
-
-  <button class="mt-6 w-full py-2.5 bg-slate-800 hover:bg-emerald-500 hover:text-black text-slate-200 text-xs font-semibold rounded-xl transition-all cursor-pointer">
-    Más información
-  </button>
-</div>
+            <button class="mt-6 w-full py-2.5 bg-slate-800 hover:bg-emerald-500 hover:text-black text-slate-200 text-xs font-semibold rounded-xl transition-all cursor-pointer">Más información</button>
+          </div>
 
           {/* Servicio 2 */}
-          {/* Servicio 2: Landing Page / Página Web con Tabs en Alpine.js */}
-<div 
-  x-data="{ tab: 'landing' }" 
-  class="bg-slate-900/40 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all group"
->
-  <div>
-    {/* Imagen superior */}
-    <div class="overflow-hidden rounded-xl mb-4 border border-slate-800 group-hover:border-slate-700">
-      <Image src={service2} alt="Landing Page / Página web" class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300" />
-    </div>
+          <div x-data="{ tab: 'landing' }" class="bg-slate-900/40 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all group">
+            <div>
+              <div class="overflow-hidden rounded-xl mb-4 border border-slate-800 group-hover:border-slate-700">
+                <Image src={service2} alt="Landing Page / Página web" class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300" />
+              </div>
 
-    <h3 class="font-bold text-white text-base">Landing Page / Página web</h3>
-    <p class="text-xs text-slate-400 mt-1">Haz que tu negocio sea conocido promociona tus servicios.</p>
-    
-    {/* Selector de Pestañas */}
-    <div class="grid grid-cols-2 gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800/80 mt-4">
-      <button 
-        type="button"
-        @click.prevent="tab = 'landing'" 
-        :class="tab === 'landing' ? 'bg-emerald-500 text-black font-bold shadow-md shadow-emerald-500/20' : 'text-slate-400 hover:text-white font-medium'"
-        class="py-1.5 text-[11px] rounded-lg transition-all duration-200 cursor-pointer"
-      >
-        Landing Page
-      </button>
+              <h3 class="font-bold text-white text-base">Landing Page / Página web</h3>
+              <p class="text-xs text-slate-400 mt-1">Haz que tu negocio sea conocido promociona tus servicios.</p>
 
-      <button 
-        type="button"
-        @click.prevent="tab = 'web'" 
-        :class="tab === 'web' ? 'bg-emerald-500 text-black font-bold shadow-md shadow-emerald-500/20' : 'text-slate-400 hover:text-white font-medium'"
-        class="py-1.5 text-[11px] rounded-lg transition-all duration-200 cursor-pointer"
-      >
-        Página Web
-      </button>
-    </div>
+              <div class="grid grid-cols-2 gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800/80 mt-4">
+                <button type="button" @click.prevent="tab = 'landing'" :class="tab === 'landing' ? 'bg-emerald-500 text-black font-bold shadow-md shadow-emerald-500/20' : 'text-slate-400 hover:text-white font-medium'" class="py-1.5 text-[11px] rounded-lg transition-all duration-200 cursor-pointer">Landing Page</button>
+                <button type="button" @click.prevent="tab = 'web'" :class="tab === 'web' ? 'bg-emerald-500 text-black font-bold shadow-md shadow-emerald-500/20' : 'text-slate-400 hover:text-white font-medium'" class="py-1.5 text-[11px] rounded-lg transition-all duration-200 cursor-pointer">Página Web</button>
+              </div>
 
-    {/* Pestaña 1: Landing Page (Por defecto) */}
-    <div x-show="tab === 'landing'" class="mt-4 pt-3 border-t border-slate-800/80">
-      <p class="text-[11px] font-semibold text-emerald-400 mb-2">Incluye (Landing Page):</p>
-      <ul class="text-[11px] text-slate-400 space-y-1.5">
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Hosting / dominio.</li>
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Botón llamada a acción.</li>
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Información y ubicación del negocio.</li>
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Soporte técnico 2 meses.</li>
-      </ul>
-    </div>
+              <div x-show="tab === 'landing'" class="mt-4 pt-3 border-t border-slate-800/80">
+                <p class="text-[11px] font-semibold text-emerald-400 mb-2">Incluye (Landing Page):</p>
+                <ul class="text-[11px] text-slate-400 space-y-1.5">
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Hosting / dominio.</li>
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Botón llamada a acción.</li>
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Información y ubicación del negocio.</li>
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Soporte técnico 2 meses.</li>
+                </ul>
+              </div>
 
-    {/* Pestaña 2: Página Web (Se muestra al hacer clic) */}
-    <div x-show="tab === 'web'" x-cloak class="mt-4 pt-3 border-t border-slate-800/80">
-      <p class="text-[11px] font-semibold text-emerald-400 mb-2">Incluye (Página Web):</p>
-      <ul class="text-[11px] text-slate-400 space-y-1.5">
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Pagina divida por secciones.</li>
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Hosting / dominio.</li>
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Soporte técnico 3 meses.</li>
-        <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Botón redirección a WhatsApp.</li>
-      </ul>
-    </div>
-  </div>
+              <div x-show="tab === 'web'" x-cloak class="mt-4 pt-3 border-t border-slate-800/80">
+                <p class="text-[11px] font-semibold text-emerald-400 mb-2">Incluye (Página Web):</p>
+                <ul class="text-[11px] text-slate-400 space-y-1.5">
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Pagina divida por secciones.</li>
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Hosting / dominio.</li>
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Soporte técnico 3 meses.</li>
+                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Botón redirección a WhatsApp.</li>
+                </ul>
+              </div>
+            </div>
 
-  <button type="button" class="mt-6 w-full py-2.5 bg-slate-800 hover:bg-emerald-500 hover:text-black text-slate-200 text-xs font-semibold rounded-xl transition-all cursor-pointer">
-    Más información
-  </button>
-</div>
+            <button type="button" class="mt-6 w-full py-2.5 bg-slate-800 hover:bg-emerald-500 hover:text-black text-slate-200 text-xs font-semibold rounded-xl transition-all cursor-pointer">Más información</button>
+          </div>
 
           {/* Servicio 3 */}
           <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all group">
@@ -347,7 +282,6 @@ import logo from '../assets/logoDevTech.png';
                   <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Reportes mensuales, semanales y personalizados a tu negocio.</li>
                   <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Metricas estadisticas de tu negocio.</li>
                   <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Soporte técnico 6 meses.</li>
-                  
                 </ul>
               </div>
             </div>
@@ -356,6 +290,8 @@ import logo from '../assets/logoDevTech.png';
 
         </div>
       </section>
+
+      
 
       {/* CONTACTS: Split Modern Form */}
       <section id="contactos" class="py-16">
