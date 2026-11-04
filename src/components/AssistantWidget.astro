@@ -1,0 +1,134 @@
+---
+import Miga from './Miga.astro';
+---
+
+<!-- Burbuja de saludo automático -->
+<div
+  id="miga-greeting"
+  class="fixed bottom-28 right-4 sm:right-6 z-50 w-[310px] max-w-[calc(100vw-2rem)] hidden"
+>
+  <div
+    class="relative rounded-xl bg-surface-container-low/95 backdrop-blur-2xl border border-outline-variant shadow-high p-4 pr-5 animate-bubble"
+  >
+    <button
+      id="miga-greeting-close"
+      class="absolute top-2.5 right-2.5 text-outline hover:text-on-surface transition-colors"
+      aria-label="Cerrar saludo"
+    >
+      <span class="material-symbols-outlined text-[16px]">close</span>
+    </button>
+    <div class="flex items-start gap-3">
+      <span
+        class="w-8 h-8 rounded-lg bg-surface-container-lowest border border-outline-variant overflow-hidden shrink-0"
+      >
+        <img src="/miga-avatar.svg" alt="Miga" class="w-full h-full object-cover" />
+      </span>
+      <div>
+        <p class="font-mono text-[10px] uppercase tracking-[0.12em] text-accent mb-1.5">Miga · Asistente</p>
+        <p id="miga-greeting-text" class="text-[13px] text-on-surface leading-relaxed"></p>
+      </div>
+    </div>
+    <span class="absolute -bottom-2 right-6 w-3.5 h-3.5 bg-surface-container-low/95 border-r border-b border-outline-variant rotate-45"></span>
+  </div>
+</div>
+
+<!-- Contenedor del asistente flotante -->
+<div class="fixed bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end" id="miga-container">
+  <!-- Tarjeta de chat -->
+  <div
+    id="miga-chat"
+    class="mb-3 w-[380px] max-w-[calc(100vw-2rem)] rounded-xl bg-surface-container-low/95 backdrop-blur-2xl shadow-high border border-outline-variant overflow-hidden hidden origin-bottom-right transition-all duration-200"
+  >
+    <!-- Cabecera -->
+    <div class="px-4 py-3 flex items-center justify-between border-b border-outline-variant/70">
+      <div class="flex items-center gap-2.5">
+        <div class="relative w-9 h-9 rounded-lg bg-surface-container-lowest border border-outline-variant overflow-hidden shrink-0">
+          <Miga size={36} class="w-full h-full" />
+          <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-secondary-container ring-2 ring-surface-container-low"></span>
+        </div>
+        <div>
+          <h4 class="text-[14px] font-semibold leading-tight text-on-surface flex items-center gap-1.5">
+            Miga
+            <span class="font-mono text-[10px] px-1.5 py-0.5 rounded bg-white/[0.06] text-on-surface-variant">v1.0</span>
+          </h4>
+          <span class="text-[11px] text-on-surface-variant flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span> Guardiana inteligente 24/7
+          </span>
+        </div>
+      </div>
+      <button
+        id="miga-close"
+        class="text-outline hover:text-on-surface p-1.5 rounded-lg transition-colors hover:bg-white/[0.06]"
+        aria-label="Minimizar"
+      >
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+    </div>
+
+    <!-- Mensajes -->
+    <div id="miga-messages" class="p-4 space-y-3 max-h-[300px] overflow-y-auto"></div>
+
+    <!-- Acciones rápidas -->
+    <div class="px-4 pb-2 pt-1 flex flex-wrap gap-1.5 border-t border-outline-variant/60">
+      <button
+        class="miga-chip px-2.5 py-1 rounded-md bg-white/[0.04] hover:bg-white/[0.08] text-on-surface border border-outline-variant text-[11px] transition-colors"
+        data-prompt="¿Cuánto cuesta mi proyecto?"
+      >
+        💰 ¿Cuánto cuesta?
+      </button>
+      <button
+        class="miga-chip px-2.5 py-1 rounded-md bg-white/[0.04] hover:bg-white/[0.08] text-on-surface border border-outline-variant text-[11px] transition-colors"
+        data-prompt="Quiero una App Móvil"
+      >
+        📱 Quiero una App
+      </button>
+      <button
+        class="miga-chip px-2.5 py-1 rounded-md bg-white/[0.04] hover:bg-white/[0.08] text-on-surface border border-outline-variant text-[11px] transition-colors"
+        data-prompt="Quiero automatizar mis procesos"
+      >
+        ⚡ Automatizar procesos
+      </button>
+      <button
+        class="miga-chip px-2.5 py-1 rounded-md bg-white/[0.04] hover:bg-white/[0.08] text-on-surface border border-outline-variant text-[11px] transition-colors"
+        data-prompt="Cotizar en 24 horas"
+      >
+        🗓️ Cotizar en 24 h
+      </button>
+    </div>
+
+    <!-- Input -->
+    <form id="miga-form" class="p-3 border-t border-outline-variant/70 flex items-center gap-2">
+      <input
+        id="miga-input"
+        type="text"
+        placeholder="Escribe tu consulta..."
+        autocomplete="off"
+        class="flex-1 px-3 py-2 bg-surface-container-lowest text-on-surface placeholder-outline text-[13px] rounded-lg border border-outline-variant focus:border-[#34343a] focus:ring-1 focus:ring-[#34343a] transition-colors"
+      />
+      <button
+        type="submit"
+        class="w-9 h-9 rounded-lg bg-[#e5e5e6] text-[#08090a] flex items-center justify-center transition-colors hover:bg-white"
+        aria-label="Enviar mensaje a Miga"
+      >
+        <span class="material-symbols-outlined text-[17px]">send</span>
+      </button>
+    </form>
+  </div>
+
+  <!-- Botón de Miga -->
+  <button
+    id="miga-toggle"
+    class="relative w-14 h-14 rounded-full bg-surface-container-lowest border border-outline-variant overflow-hidden transition-colors hover:border-[#34343a] animate-aura"
+    aria-label="Abrir el chat de Miga"
+  >
+    <span class="absolute inset-0 animate-float-slow">
+      <Miga size={56} class="w-full h-full" />
+    </span>
+    <span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-secondary-container ring-2 ring-background"></span>
+    <span
+      id="miga-notify"
+      class="absolute -top-1 -left-1 w-5 h-5 rounded-full bg-brand text-white font-mono text-[10px] flex items-center justify-center ring-2 ring-background"
+      >1</span
+    >
+  </button>
+</div>

@@ -1,0 +1,74 @@
+---
+const manual = [
+  'Pedidos que se anotan a mano en cuadernos',
+  'Reportes que se arman a mano cada semana',
+  'Stock que se actualiza "cuando se acuerdan"',
+  'Precios que cambian según quién pregunte',
+  'Cero trazabilidad de lo que se vendió',
+  'La operación se frena cuando falta un turno',
+];
+const ddt = [
+  'Pedidos que entran solos por WhatsApp con QR',
+  'Reportes que se actualizan en tiempo real',
+  'Stock sincronizado entre todos los puntos de venta',
+  'Precios y reglas siempre iguales',
+  'Historial completo de cada venta y cada cliente',
+  'La operación sigue funcionando aunque falte alguien',
+];
+---
+
+<section class="w-full max-w-shell mx-auto px-gutter-mobile lg:px-gutter py-20 lg:py-28 relative" id="comparativa">
+  <div class="max-w-2xl">
+    <p class="eyebrow mb-4" data-reveal>Comparativa honesta</p>
+    <h2 class="font-display text-headline-lg-mobile lg:text-headline-lg text-on-surface" data-reveal>
+      Procesos manuales <span class="text-on-surface-variant">vs. software inteligente</span>
+    </h2>
+    <p class="text-body-lg text-on-surface-variant mt-4" data-reveal>
+      La diferencia no es la tecnología: es cuánto tiempo de tu equipo se va en tareas que una app
+      resuelve sola.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12">
+    <!-- Manual -->
+    <div class="p-6 rounded-xl bg-surface-container-low/50 border border-outline-variant" data-reveal>
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="font-headline text-[15px] font-semibold text-on-surface">Procesos manuales</h3>
+        <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-outline">Lo que haces hoy</span>
+      </div>
+      <ul class="space-y-3.5">
+        {
+          manual.map((item) => (
+            <li class="flex items-start gap-3 text-[13px] text-on-surface-variant">
+              <span class="material-symbols-outlined text-[15px] text-outline mt-px">close</span>
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- Digital Dev Tech -->
+    <div
+      class="p-6 rounded-xl bg-surface-container-low border border-accent/25 relative overflow-hidden"
+      data-reveal
+      style="--ddt-delay:120ms"
+    >
+      <div class="absolute -top-20 -right-16 w-56 h-56 rounded-full bg-accent/10 blur-[70px] pointer-events-none"></div>
+      <div class="flex items-center justify-between mb-6 relative">
+        <h3 class="font-headline text-[15px] font-semibold text-on-surface">Con Digital Dev Tech</h3>
+        <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-accent">Lo que puedes tener</span>
+      </div>
+      <ul class="space-y-3.5 relative">
+        {
+          ddt.map((item) => (
+            <li class="flex items-start gap-3 text-[13px] text-on-surface">
+              <span class="material-symbols-outlined text-[15px] text-secondary-container mt-px">check_circle</span>
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

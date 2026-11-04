@@ -1,0 +1,171 @@
+---
+const modulos = [
+  {
+    code: 'ERP',
+    icon: 'inventory_2',
+    nombre: 'ERP a medida',
+    desc: 'Inventario, compras, ventas, producción y finanzas en un solo panel.',
+    pill: 'Núcleo',
+    tono: 'accent',
+  },
+  {
+    code: 'SCM',
+    icon: 'local_shipping',
+    nombre: 'Gestión de cadena de suministro',
+    desc: 'Proveedores, órdenes de compra, recepción y trazabilidad de cada lote.',
+    pill: 'Logística',
+    tono: 'tertiary',
+  },
+  {
+    code: 'CRM',
+    icon: 'handshake',
+    nombre: 'CRM y postventa',
+    desc: 'Pipeline comercial, historial de clientes, recordatorios y fidelización.',
+    pill: 'Ventas',
+    tono: 'secondary',
+  },
+  {
+    code: 'WMS',
+    icon: 'warehouse',
+    nombre: 'WMS para bodega',
+    desc: 'Stock por bodega, picking, mermas, transferencias y conteos cíclicos.',
+    pill: 'Bodega',
+    tono: 'tertiary',
+  },
+  {
+    code: 'ACC',
+    icon: 'receipt_long',
+    nombre: 'Contabilidad y facturación',
+    desc: 'Libro de ventas, IVA, balances, cuentas por cobrar y cierre mensual.',
+    pill: 'Finanzas',
+    tono: 'accent',
+  },
+  {
+    code: 'POS',
+    icon: 'point_of_sale',
+    nombre: 'Punto de venta',
+    desc: 'Cobro con QR o tarjeta, impresión de tickets y corte de caja por turno.',
+    pill: 'Mostrador',
+    tono: 'secondary',
+  },
+  {
+    code: 'AI',
+    icon: 'auto_awesome',
+    nombre: 'Automatización con IA',
+    desc: 'Clasificación de pedidos, respuestas rápidas y reportes que se redactan solos.',
+    pill: 'Inteligente',
+    tono: 'accent',
+  },
+  {
+    code: 'BI',
+    icon: 'monitoring',
+    nombre: 'Dashboards y reportes',
+    desc: 'Indicadores en vivo, alertas por umbral y reportes listos para decidir.',
+    pill: 'Control',
+    tono: 'tertiary',
+  },
+];
+---
+
+<section class="w-full max-w-shell mx-auto px-gutter-mobile lg:px-gutter py-20 lg:py-28 relative" id="software">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+    <!-- Columna de texto -->
+    <div class="lg:col-span-5">
+      <p class="eyebrow mb-4" data-reveal>El software que hacemos</p>
+      <h2
+        class="font-display text-headline-lg-mobile lg:text-headline-lg text-on-surface leading-[1.1]"
+        data-reveal
+      >
+        ERP, SCM, CRM, WMS y contabilidad,
+        <span class="text-gradient-accent">construidos a la medida de tu operación</span>
+      </h2>
+      <p class="text-body-lg text-on-surface-variant mt-5" data-reveal>
+        No revendemos software genérico: diseñamos cada módulo con tus procesos, tus roles y tus
+        números. Cada sistema funciona solo, pero juntos se convierten en una sola empresa.
+      </p>
+
+      <div class="flex flex-wrap gap-2 mt-7" data-reveal>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-outline-variant text-[12px] text-on-surface-variant"
+          ><span class="material-symbols-outlined text-[14px] text-accent">all_inclusive</span> Un solo proveedor</span
+        >
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-outline-variant text-[12px] text-on-surface-variant"
+          ><span class="material-symbols-outlined text-[14px] text-secondary-container">lock</span> Acceso a tus cuentas</span
+        >
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-outline-variant text-[12px] text-on-surface-variant"
+          ><span class="material-symbols-outlined text-[14px] text-tertiary-container">bolt</span> Integrable con lo que ya usas</span
+        >
+      </div>
+    </div>
+
+    <!-- Panel tipo "tablero" -->
+    <div class="lg:col-span-7" data-reveal>
+      <div class="rounded-xl bg-surface-container-low border border-outline-variant overflow-hidden">
+        <!-- Cabecera del tablero -->
+        <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/70">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-secondary-container"></span>
+            <span class="font-mono text-[11px] text-outline">DDT_MODULES // v1.0</span>
+          </div>
+          <span class="font-mono text-[11px] text-outline">{modulos.length} módulos</span>
+        </div>
+
+        <!-- Filas -->
+        <ul class="divide-y divide-outline-variant/60">
+          {
+            modulos.map((m, i) => (
+              <li
+                class="group flex items-start gap-4 px-4 py-3.5 transition-colors hover:bg-white/[0.02]"
+                data-reveal
+                style={`--ddt-delay:${i * 50}ms`}
+              >
+                <span class="font-mono text-[11px] text-outline w-9 shrink-0 pt-1.5">{m.code}</span>
+
+                <span class="w-8 h-8 rounded-lg bg-white/[0.04] border border-outline-variant flex items-center justify-center text-on-surface-variant shrink-0 group-hover:text-accent transition-colors">
+                  <span class="material-symbols-outlined text-[16px]">{m.icon}</span>
+                </span>
+
+                <span class="min-w-0 flex-1">
+                  <span class="block text-[14px] font-medium text-on-surface">{m.nombre}</span>
+                  <span class="block text-[12px] text-on-surface-variant mt-0.5">{m.desc}</span>
+                </span>
+
+                <span
+                  class={`hidden sm:inline-flex items-center px-2 py-0.5 rounded-md border text-[11px] shrink-0 ${
+                    m.tono === 'accent'
+                      ? 'border-accent/30 text-accent bg-accent/[0.07]'
+                      : m.tono === 'tertiary'
+                        ? 'border-tertiary-container/30 text-tertiary-container bg-tertiary-container/[0.07]'
+                        : 'border-secondary-container/30 text-secondary-container bg-secondary-container/[0.07]'
+                  }`}
+                >
+                  {m.pill}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Ticker -->
+      <div
+        class="mt-4 overflow-hidden rounded-xl border border-outline-variant bg-surface-container-low/50 py-3 select-none"
+        aria-hidden="true"
+      >
+        <div class="flex w-max animate-marquee gap-8">
+          {
+            [0, 1].map(() => (
+              <div class="flex gap-8 shrink-0">
+                {modulos.map((m) => (
+                  <span class="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-outline whitespace-nowrap">
+                    <span class="w-1 h-1 rounded-full bg-outline" />
+                    {m.code} · {m.nombre}
+                  </span>
+                ))}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

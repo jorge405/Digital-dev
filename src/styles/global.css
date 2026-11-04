@@ -1,38 +1,581 @@
+/* ==========================================================================
+   Digital Dev Tech — hoja de estilos global
+   Tailwind CSS v4 (vía @tailwindcss/vite)
+   Incluye: fuentes del proyecto + sistema de diseño "Linear Studio"
+   ========================================================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
 
 @import "tailwindcss";
 
+/* --------------------------------------------------------------------------
+   Tokens del sistema "Linear Studio"
+   (valores reales extraídos del CSS de linear.app, tema oscuro)
+   -------------------------------------------------------------------------- */
+@theme {
+  /* Superficies y fondo */
+  --color-background: #08090a;
+  --color-on-background: #f7f8f8;
+  --color-surface: #08090a;
+  --color-surface-dim: #010102;
+  --color-surface-bright: #34343a;
+  --color-surface-container-lowest: #08090a;
+  --color-surface-container-low: #0f1011;
+  --color-surface-container: #141516;
+  --color-surface-container-high: #191a1b;
+  --color-surface-container-highest: #23252a;
 
+  /* Texto */
+  --color-on-surface: #f7f8f8;
+  --color-on-surface-variant: #8a8f98;
+  --color-outline: #62666d;
+  --color-outline-variant: #23252a;
 
-@layer utilities{
-    
-    
-    .font-outfit{
-        font-family: "Outfit", sans-serif;
-    }
-    
-    .font-inter{
-        font-family: "Inter", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: weight;
-        font-style: normal;
-    }
+  /* Marca y acentos */
+  --color-primary: #f7f8f8;
+  --color-primary-fixed: #5e6ad2;
+  --color-primary-fixed-dim: #5e6ad2;
+  --color-primary-container: #7170ff;
+  --color-on-primary: #08090a;
+  --color-on-primary-container: #ffffff;
+  --color-on-primary-fixed: #08090a;
 
-    .font-chelsea{
-        font-family: "Chelsea Market", system-ui;
-        font-weight: 400;
-        font-style: normal;
-    }
+  --color-secondary: #d0d6e0;
+  --color-secondary-fixed: #27a644;
+  --color-secondary-fixed-dim: #68cc58;
+  --color-secondary-container: #68cc58;
+  --color-on-secondary-container: #0b2a12;
 
-    .font-charon {
-        font-family: "Iosevka Charon", monospace;
-        font-weight: 400;
-        font-style: normal;
-    }
+  --color-tertiary: #b4bcd0;
+  --color-tertiary-fixed: #00b8cc;
+  --color-tertiary-fixed-dim: #4ea7fc;
+  --color-tertiary-container: #00b8cc;
+  --color-on-tertiary-container: #04232b;
+
+  --color-brand: #5e6ad2;
+  --color-accent: #7170ff;
+  --color-error: #eb5757;
+  --color-warning: #f0bf00;
+
+  /* Tipografías */
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-headline: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-label: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* Escala tipográfica */
+  --text-display-hero: 64px;
+  --text-display-hero--line-height: 70px;
+  --text-display-hero--letter-spacing: -0.035em;
+  --text-display-hero--font-weight: 600;
+
+  --text-display-hero-mobile: 38px;
+  --text-display-hero-mobile--line-height: 44px;
+  --text-display-hero-mobile--letter-spacing: -0.03em;
+  --text-display-hero-mobile--font-weight: 600;
+
+  --text-headline-lg: 48px;
+  --text-headline-lg--line-height: 54px;
+  --text-headline-lg--letter-spacing: -0.03em;
+  --text-headline-lg--font-weight: 600;
+
+  --text-headline-lg-mobile: 32px;
+  --text-headline-lg-mobile--line-height: 38px;
+  --text-headline-lg-mobile--letter-spacing: -0.025em;
+  --text-headline-lg-mobile--font-weight: 600;
+
+  --text-headline-md: 36px;
+  --text-headline-md--line-height: 42px;
+  --text-headline-md--letter-spacing: -0.025em;
+  --text-headline-md--font-weight: 600;
+
+  --text-headline-sm: 24px;
+  --text-headline-sm--line-height: 32px;
+  --text-headline-sm--letter-spacing: -0.02em;
+  --text-headline-sm--font-weight: 600;
+
+  --text-body-lg: 17px;
+  --text-body-lg--line-height: 28px;
+  --text-body-lg--letter-spacing: -0.011em;
+
+  --text-body-md: 15px;
+  --text-body-md--line-height: 24px;
+  --text-body-md--letter-spacing: -0.011em;
+
+  --text-body-sm: 13px;
+  --text-body-sm--line-height: 20px;
+  --text-body-sm--letter-spacing: -0.01em;
+
+  --text-label-lg: 13px;
+  --text-label-lg--line-height: 18px;
+  --text-label-lg--font-weight: 500;
+
+  --text-label-md: 12px;
+  --text-label-md--line-height: 16px;
+  --text-label-md--letter-spacing: 0.01em;
+  --text-label-md--font-weight: 500;
+
+  --text-label-sm: 11px;
+  --text-label-sm--line-height: 14px;
+  --text-label-sm--letter-spacing: 0.04em;
+  --text-label-sm--font-weight: 500;
+
+  /* Layout */
+  --spacing-gutter: 1.5rem;
+  --spacing-gutter-mobile: 1.25rem;
+  --container-shell: 1200px;
+
+  /* Radios y sombras */
+  --radius: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --shadow-low: 0 2px 4px #0000001a;
+  --shadow-medium: 0 4px 24px #0003;
+  --shadow-high: 0 7px 32px #00000059;
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background font-body text-on-surface antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(94, 106, 210, 0.18), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 85% 5%, rgba(113, 112, 255, 0.1), transparent 70%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(113, 112, 255, 0.35);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #08090a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #23252a;
+    border-radius: 9999px;
+    border: 2px solid #08090a;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #34343a;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-headline text-on-surface;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Componentes
+   -------------------------------------------------------------------------- */
+@layer components {
+  .glass-panel {
+    @apply bg-surface-container-low/80 backdrop-blur-xl border border-outline-variant;
+  }
+  .glass-strong {
+    @apply bg-surface-container-low/95 backdrop-blur-2xl border border-outline-variant;
+  }
+
+  /* Rejilla técnica muy sutil de fondo */
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, #000 40%, transparent 100%);
+  }
+
+  /* Etiqueta superior monoespaciada (el "eyebrow" de Linear) */
+  .eyebrow {
+    @apply font-mono text-[11px] uppercase tracking-[0.14em] text-outline;
+  }
+
+  /* Botón principal estilo "invert" de Linear */
+  .btn-invert {
+    @apply inline-flex items-center justify-center gap-2 h-9 px-4 rounded-lg bg-[#e5e5e6] text-[#08090a] text-[13px] font-medium transition-all duration-150 hover:bg-white;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 h-9 px-4 rounded-lg bg-white/[0.06] text-on-surface text-[13px] font-medium border border-outline-variant transition-all duration-150 hover:bg-white/[0.1] hover:border-[#34343a];
+  }
+  .btn-brand {
+    @apply inline-flex items-center justify-center gap-2 h-9 px-4 rounded-lg bg-brand text-white text-[13px] font-medium transition-all duration-150 hover:bg-[#7170ff];
+  }
+
+  /* Tarjeta base */
+  .card {
+    @apply bg-surface-container-low border border-outline-variant rounded-xl transition-colors duration-200 hover:border-[#34343a];
+  }
+
+  /* Texto degradado de marca */
+  .text-gradient {
+    background: linear-gradient(90deg, #f7f8f8 0%, #b4bcd0 40%, #7170ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .text-gradient-accent {
+    background: linear-gradient(90deg, #828fff 0%, #7170ff 50%, #b4bcd0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Utilidades heredadas del proyecto (páginas previas)
+   -------------------------------------------------------------------------- */
+@layer utilities {
+  .font-outfit {
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+  }
+
+  .font-chelsea {
+    font-family: 'Chelsea Market', system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .font-charon {
+    font-family: 'Iosevka Charon', monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
 }
 
 [x-cloak] {
   display: none !important;
+}
+
+/* ==========================================================================
+   Animaciones — movimiento sobrio al estilo Linear
+   ========================================================================== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes floatDelayed {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes laserScan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(1000%);
+    opacity: 0;
+  }
+}
+
+@keyframes circuitTravel {
+  0% {
+    stroke-dashoffset: 240;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes auraBreathe {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px rgba(113, 112, 255, 0.35),
+      0 0 24px -8px rgba(113, 112, 255, 0.5);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(113, 112, 255, 0.6),
+      0 0 36px -6px rgba(113, 112, 255, 0.8);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bubblePop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+@keyframes tailSway {
+  0%,
+  100% {
+    transform: rotate(-7deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
+}
+
+@keyframes earTwitch {
+  0%,
+  88%,
+  100% {
+    transform: rotate(0deg);
+  }
+  92% {
+    transform: rotate(-11deg);
+  }
+}
+
+@keyframes pawWave {
+  0%,
+  70%,
+  100% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(-16deg);
+  }
+  90% {
+    transform: rotate(9deg);
+  }
+}
+
+@keyframes bounceSoft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes spinSlow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: floatDelayed 7s ease-in-out infinite 1.2s;
+}
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+.animate-laser {
+  animation: laserScan 5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.animate-aura {
+  animation: auraBreathe 3.4s ease-in-out infinite;
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 7s ease infinite;
+}
+.animate-bubble {
+  animation: bubblePop 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.animate-bounce-soft {
+  animation: bounceSoft 3.4s ease-in-out infinite;
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+.circuit-line {
+  stroke-dasharray: 20 8;
+  animation: circuitTravel 10s linear infinite;
+}
+
+/* Miga: movimientos del animal */
+.miga-body {
+  animation: bounceSoft 4.2s ease-in-out infinite;
+  transform-origin: 50% 90%;
+}
+.miga-tail {
+  animation: tailSway 2.8s ease-in-out infinite;
+  transform-origin: 88% 78%;
+}
+.miga-ear-left {
+  animation: earTwitch 5.5s ease-in-out infinite;
+  transform-origin: 30% 100%;
+}
+.miga-ear-right {
+  animation: earTwitch 6.5s ease-in-out infinite 0.8s;
+  transform-origin: 70% 100%;
+}
+.miga-eye {
+  animation: blink 5.5s infinite;
+  transform-origin: center;
+}
+.miga-paw {
+  animation: pawWave 6s ease-in-out infinite;
+  transform-origin: 70% 80%;
+}
+.miga-orbit {
+  animation: spinSlow 14s linear infinite;
+  transform-origin: center;
+}
+
+/* Revelado progresivo al hacer scroll.
+   Solo se anima el desplazamiento: si el navegador congela las animaciones
+   (pestaña en segundo plano, ahorro de recursos), el contenido sigue
+   siendo visible en lugar de quedarse en opacidad 0. */
+html.js-anim [data-reveal].is-visible {
+  animation: ddtReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  animation-delay: var(--ddt-delay, 0ms);
+}
+
+@keyframes ddtReveal {
+  from {
+    transform: translateY(18px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+/* Enlace del menú: cambio de color + subrayado sutil */
+.nav-link {
+  position: relative;
+  transition: color 0.15s linear;
+}
+.nav-link:hover {
+  color: #f7f8f8;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 1px;
+  width: 0;
+  background: #7170ff;
+  transition: width 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  html.js-anim [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

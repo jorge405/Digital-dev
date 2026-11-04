@@ -1,0 +1,117 @@
+---
+const servicios = [
+  'Apps iOS & Android',
+  'Catálogos & WhatsApp QR',
+  'Sistemas ERP a Medida',
+  'Landing Pages de Conversión',
+  'Auditoría y ROI',
+];
+const compromisos = [
+  'Acceso total a tus cuentas',
+  'Costos claros, sin sorpresas',
+  'Soporte y garantía post-entrega',
+  'Confidencialidad garantizada',
+];
+---
+
+<footer class="w-full max-w-shell mx-auto px-gutter-mobile lg:px-gutter pt-16 pb-10">
+  <div class="border-t border-outline-variant pt-12">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+      <!-- Marca -->
+      <div class="md:col-span-4">
+        <a href="#inicio" class="flex items-center gap-2.5">
+          <span
+            class="w-7 h-7 rounded-md bg-surface-container-lowest border border-outline-variant flex items-center justify-center overflow-hidden"
+          >
+            <img src="/logo-ddt.svg" alt="Digital Dev Tech" class="w-full h-full object-contain" />
+          </span>
+          <span class="leading-tight">
+            <span class="block font-headline text-[15px] font-semibold text-on-surface">Digital Dev Tech</span>
+            <span class="block font-mono text-[10px] uppercase tracking-[0.12em] text-outline"
+              >Software &amp; Mobile Studio</span
+            >
+          </span>
+        </a>
+
+        <p class="text-[13px] text-on-surface-variant leading-relaxed mt-5 max-w-sm">
+          Estudio de ingeniería de software especializado en el diseño, desarrollo e implementación de
+          aplicaciones móviles y plataformas web de alto tráfico y conversión.
+        </p>
+
+        <div class="mt-6 space-y-2.5">
+          <a
+            href="mailto:jorgejano97@gmail.com"
+            class="flex items-center gap-2 text-[13px] text-on-surface-variant hover:text-on-surface transition-colors"
+          >
+            <span class="material-symbols-outlined text-[15px]">mail</span>
+            <span>jorgejano97@gmail.com</span>
+          </a>
+          <a
+            href="https://wa.me/59171961698?text=Hola,%20quiero%20cotizar%20un%20proyecto%20de%20software"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 text-[13px] text-on-surface-variant hover:text-on-surface transition-colors"
+          >
+            <span class="material-symbols-outlined text-[15px]">chat</span>
+            <span>+591 71961698</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Servicios -->
+      <div class="md:col-span-3">
+        <p class="font-mono text-[10px] uppercase tracking-[0.14em] text-outline mb-4">Servicios</p>
+        <ul class="space-y-2.5">
+          {
+            servicios.map((s) => (
+              <li>
+                <a class="text-[13px] text-on-surface-variant hover:text-on-surface transition-colors" href="#soluciones">
+                  {s}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Compromiso -->
+      <div class="md:col-span-3">
+        <p class="font-mono text-[10px] uppercase tracking-[0.14em] text-outline mb-4">Compromiso</p>
+        <ul class="space-y-2.5">
+          {
+            compromisos.map((c) => (
+              <li class="flex items-start gap-2 text-[13px] text-on-surface-variant">
+                <span class="material-symbols-outlined text-[14px] text-secondary-container mt-px">check</span>
+                <span>{c}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Estado -->
+      <div class="md:col-span-2">
+        <p class="font-mono text-[10px] uppercase tracking-[0.14em] text-outline mb-4">Estado</p>
+        <div class="flex items-center gap-2 text-[13px] text-on-surface-variant">
+          <span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+          Servidores 99.98% operativos
+        </div>
+        <p class="font-mono text-[11px] text-outline mt-6">© 2024 Digital Dev Tech</p>
+        <p class="font-mono text-[11px] text-outline">Desarrollado por DigitalDevTech</p>
+      </div>
+    </div>
+
+    <div
+      class="mt-12 pt-6 border-t border-outline-variant flex flex-col sm:flex-row items-center justify-between gap-3"
+    >
+      <p class="font-mono text-[11px] text-outline">Digital Dev Tech · Todos los derechos reservados</p>
+      <a
+        href="#inicio"
+        class="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.12em] text-outline hover:text-on-surface transition-colors"
+      >
+        <span class="material-symbols-outlined text-[14px]">north</span>
+        Volver arriba
+      </a>
+    </div>
+  </div>
+</footer>

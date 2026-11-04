@@ -1,0 +1,89 @@
+---
+const pasos = [
+  {
+    num: '01',
+    icon: 'rocket_launch',
+    fase: 'Fase inicial',
+    titulo: 'Diagnóstico sin costo',
+    texto:
+      'Respondemos el mismo día por WhatsApp: entendemos tu operación, qué se hace a mano, qué se pierde y qué se repite. Salimos con un diagnóstico claro y accionable.',
+    nota: 'Respuesta el mismo día',
+  },
+  {
+    num: '02',
+    icon: 'dashboard_customize',
+    fase: 'Planificación',
+    titulo: 'Diseño a tu medida',
+    texto:
+      'Convertimos tu operación en un plan: pantallas, flujos y datos. Ves el resultado esperado antes de que escribamos la primera línea de código.',
+    nota: 'Propuesta en 48 horas',
+  },
+  {
+    num: '03',
+    icon: 'science',
+    fase: 'Construcción',
+    titulo: 'Desarrollo por entregas',
+    texto:
+      'Avanzamos en ciclos cortos y recibes avances funcionales para probarlos en tu operación real. El plazo depende del tamaño del software o la aplicación, y siempre te lo decimos antes de empezar.',
+    nota: 'Plazos según el tamaño',
+  },
+  {
+    num: '04',
+    icon: 'key',
+    fase: 'Despliegue',
+    titulo: 'Entrega y soporte',
+    texto:
+      'Publicamos tu sistema, te damos acceso a todas tus credenciales y te acompañamos con soporte y garantía después de la entrega.',
+    nota: 'Acceso total a tus cuentas',
+  },
+];
+---
+
+<section class="w-full max-w-shell mx-auto px-gutter-mobile lg:px-gutter py-20 lg:py-28 relative" id="proceso">
+  <div class="max-w-2xl">
+    <p class="eyebrow mb-4" data-reveal>Metodología</p>
+    <h2 class="font-display text-headline-lg-mobile lg:text-headline-lg text-on-surface" data-reveal>
+      Cómo trabajamos: de la idea al software en <span class="text-on-surface-variant">4 pasos</span>
+    </h2>
+    <p class="text-body-lg text-on-surface-variant mt-4" data-reveal>
+      Un flujo transparente, rápido y sin fricciones, pensado para eliminar las tareas manuales desde el
+      primer día.
+    </p>
+  </div>
+
+  <!-- Conector -->
+  <div class="relative mt-14 hidden lg:block" aria-hidden="true">
+    <svg class="w-full h-px" viewBox="0 0 1200 40" preserveAspectRatio="none" fill="none">
+      <path d="M0 20 H1200" stroke="#23252a" stroke-width="1" />
+      <path class="circuit-line" d="M0 20 H1200" stroke="#7170ff" stroke-width="1" opacity="0.5" />
+    </svg>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+    {
+      pasos.map((p, i) => (
+        <article
+          class="group relative p-5 rounded-xl bg-surface-container-low border border-outline-variant hover:border-[#34343a] transition-colors duration-200"
+          data-reveal
+          style={`--ddt-delay:${i * 90}ms`}
+        >
+          <div class="flex items-center justify-between mb-6">
+            <span class="font-mono text-[11px] tracking-[0.12em] text-outline">{p.num}</span>
+            <span class="w-8 h-8 rounded-lg bg-white/[0.04] border border-outline-variant flex items-center justify-center text-on-surface-variant group-hover:text-accent transition-colors">
+              <span class="material-symbols-outlined text-[16px]">{p.icon}</span>
+            </span>
+          </div>
+
+          <p class="font-mono text-[10px] uppercase tracking-[0.12em] text-accent mb-2">{p.fase}</p>
+          <h3 class="font-headline text-[17px] font-semibold text-on-surface leading-snug">{p.titulo}</h3>
+          <p class="text-[13px] text-on-surface-variant leading-relaxed mt-3">{p.texto}</p>
+
+          <div class="mt-5 pt-4 border-t border-outline-variant/70 flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[13px] text-outline">schedule</span>
+            <span class="font-mono text-[11px] text-outline">{p.nota}</span>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

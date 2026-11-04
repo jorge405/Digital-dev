@@ -1,0 +1,96 @@
+---
+const whatsappCta =
+  'https://wa.me/59171961698?text=Hola,%20quiero%20cotizar%20un%20proyecto%20de%20software%20para%20mi%20empresa';
+---
+
+<header
+  class="fixed top-0 inset-x-0 z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/80"
+>
+  <div class="h-16 w-full max-w-shell mx-auto px-gutter-mobile lg:px-gutter flex items-center justify-between gap-4">
+    <!-- Marca -->
+    <a href="#inicio" class="flex items-center gap-2.5 group">
+      <span
+        class="w-7 h-7 rounded-md bg-surface-container-lowest border border-outline-variant flex items-center justify-center overflow-hidden transition-colors group-hover:border-[#34343a]"
+      >
+        <img src="/logo-ddt.svg" alt="Digital Dev Tech" class="w-full h-full object-contain" />
+      </span>
+      <span class="hidden sm:block leading-tight whitespace-nowrap">
+        <span class="font-headline text-[15px] font-semibold text-on-surface tracking-tight block"
+          >Digital Dev <span class="text-on-surface-variant">Tech</span></span
+        >
+        <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-outline block hidden xl:block whitespace-nowrap"
+          >Software &amp; Mobile Studio</span
+        >
+      </span>
+    </a>
+
+    <!-- Navegación -->
+    <nav
+      class="hidden md:flex items-center gap-3 lg:gap-6 shrink-0"
+      data-active-classes="text-on-surface font-medium"
+    >
+      <a class="nav-link text-[12.5px] lg:text-[13px] text-on-surface-variant whitespace-nowrap" href="#el-problema">El Problema</a>
+      <a class="nav-link text-[12.5px] lg:text-[13px] text-on-surface-variant whitespace-nowrap" href="#soluciones">Soluciones</a>
+      <a class="nav-link text-[12.5px] lg:text-[13px] text-on-surface-variant whitespace-nowrap" href="#proceso">Cómo Trabajamos</a>
+      <a class="nav-link text-[12.5px] lg:text-[13px] text-on-surface-variant whitespace-nowrap hidden lg:inline" href="#comparativa">Comparativa</a>
+      <a class="nav-link text-[12.5px] lg:text-[13px] text-on-surface-variant whitespace-nowrap hidden lg:inline" href="#precios-and-roi">Precios &amp; ROI</a>
+      <a class="nav-link text-[12.5px] lg:text-[13px] text-on-surface-variant whitespace-nowrap" href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <!-- Botón de Miga en el header -->
+      <button
+        id="header-miga-btn"
+        class="relative w-8 h-8 rounded-full bg-surface-container-lowest border border-outline-variant overflow-hidden transition-colors hover:border-[#34343a]"
+        aria-label="Abrir el chat de Miga, el asistente de Digital Dev Tech"
+        title="Hablar con Miga"
+      >
+        <img src="/miga-avatar.svg" alt="Miga" class="w-full h-full object-cover" />
+        <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-secondary-container ring-2 ring-background"></span>
+      </button>
+
+      <a
+        class="hidden sm:inline-flex items-center gap-1.5 h-8 px-3.5 rounded-lg bg-[#e5e5e6] text-[#08090a] text-[13px] font-medium hover:bg-white transition-colors duration-150 shrink-0"
+        href={whatsappCta}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="material-symbols-outlined text-[16px]">bolt</span>
+        <span>Cotizar Ahora</span>
+      </a>
+
+      <!-- Menú móvil -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden w-8 h-8 rounded-md flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-white/[0.06] transition-colors shrink-0"
+        aria-label="Abrir menú"
+      >
+        <span class="material-symbols-outlined text-[20px]">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú móvil desplegable -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden border-t border-outline-variant bg-surface-container-low/95 backdrop-blur-2xl"
+  >
+    <nav class="px-gutter-mobile py-3 flex flex-col">
+      <a class="py-2 text-[13px] text-on-surface-variant hover:text-on-surface transition-colors" href="#el-problema">El Problema</a>
+      <a class="py-2 text-[13px] text-on-surface-variant hover:text-on-surface transition-colors" href="#soluciones">Soluciones</a>
+      <a class="py-2 text-[13px] text-on-surface-variant hover:text-on-surface transition-colors" href="#proceso">Cómo Trabajamos</a>
+      <a class="py-2 text-[13px] text-on-surface-variant hover:text-on-surface transition-colors" href="#comparativa">Comparativa</a>
+      <a class="py-2 text-[13px] text-on-surface-variant hover:text-on-surface transition-colors" href="#precios-and-roi">Precios &amp; ROI</a>
+      <a class="py-2 text-[13px] text-on-surface-variant hover:text-on-surface transition-colors" href="#contacto">Contacto</a>
+      <a
+        class="mt-2 inline-flex items-center justify-center gap-1.5 h-9 px-4 rounded-lg bg-[#e5e5e6] text-[#08090a] text-[13px] font-medium"
+        href={whatsappCta}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="material-symbols-outlined text-[16px]">bolt</span>
+        <span>Cotizar Ahora</span>
+      </a>
+    </nav>
+  </div>
+</header>

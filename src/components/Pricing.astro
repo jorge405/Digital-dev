@@ -1,0 +1,126 @@
+---
+const antiguo = [
+  'Costos inflados: presupuestos de seis cifras con costos ocultos de gestión.',
+  'Tiempos eternos: entre 6 y 12 meses antes del primer prototipo.',
+  'Tarifas de mantenimiento cautivas: cobros recurrentes por cambios mínimos.',
+  'Código propietario: te vuelves dependiente de licencias cerradas.',
+];
+const ddt = [
+  'Inversión predecible y honesta: paquetes estructurados sin sorpresas.',
+  'Sprints de 3 a 6 semanas: entregas visibles para validar valor desde el día 15.',
+  'Acceso total a tus credenciales: te entregamos el control de cuentas, paneles y accesos desde el primer día.',
+  'Ahorro medible: recuperas horas-hombre y agilidad operativa.',
+];
+---
+
+<section class="w-full max-w-shell mx-auto px-gutter-mobile lg:px-gutter py-20 lg:py-28 relative" id="precios-and-roi">
+  <div class="max-w-2xl">
+    <p class="eyebrow mb-4" data-reveal>Transparencia de costos</p>
+    <h2 class="font-display text-headline-lg-mobile lg:text-headline-lg text-on-surface" data-reveal>
+      No necesitas un presupuesto millonario para <span class="text-on-surface-variant">digitalizarte</span>
+    </h2>
+    <p class="text-body-lg text-on-surface-variant mt-4" data-reveal>
+      Derribamos la barrera entre el software accesible y la tecnología de alto nivel, con un retorno de
+      inversión acelerado.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-12">
+    <!-- Consultora tradicional -->
+    <div class="p-6 rounded-xl bg-surface-container-low/50 border border-outline-variant" data-reveal>
+      <div class="flex items-center justify-between gap-3 mb-6">
+        <h3 class="font-headline text-[15px] font-semibold text-on-surface">Modelo anticuado</h3>
+        <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-outline">Consultora tradicional</span>
+      </div>
+      <ul class="space-y-3.5">
+        {
+          antiguo.map((item) => (
+            <li class="flex items-start gap-3 text-[13px] text-on-surface-variant">
+              <span class="material-symbols-outlined text-[15px] text-outline mt-px">close</span>
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-7 pt-5 border-t border-outline-variant/70 flex items-center justify-between">
+        <span class="font-mono text-[11px] uppercase tracking-[0.12em] text-outline">Retorno estimado</span>
+        <span class="font-mono text-[13px] text-error">&gt; 18 – 24 meses</span>
+      </div>
+    </div>
+
+    <!-- Digital Dev Tech -->
+    <div class="p-6 rounded-xl bg-surface-container-low border border-accent/25 relative overflow-hidden" data-reveal style="--ddt-delay:100ms">
+      <div class="absolute -top-24 -right-16 w-56 h-56 rounded-full bg-accent/10 blur-[70px] pointer-events-none"></div>
+      <div class="relative flex items-center justify-between gap-3 mb-6">
+        <h3 class="font-headline text-[15px] font-semibold text-on-surface">El enfoque ágil</h3>
+        <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-accent">El modelo Digital Dev Tech</span>
+      </div>
+      <ul class="space-y-3.5 relative">
+        {
+          ddt.map((item) => (
+            <li class="flex items-start gap-3 text-[13px] text-on-surface">
+              <span class="material-symbols-outlined text-[15px] text-secondary-container mt-px">check_circle</span>
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="relative mt-7 pt-5 border-t border-outline-variant/70 flex items-center justify-between">
+        <span class="font-mono text-[11px] uppercase tracking-[0.12em] text-outline">Retorno de inversión</span>
+        <span class="font-mono text-[13px] text-secondary-container">&lt; 90 días</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calculadora -->
+  <div class="mt-4 rounded-xl bg-surface-container-low border border-outline-variant overflow-hidden" data-reveal>
+    <div class="px-6 py-4 border-b border-outline-variant/70 flex items-center gap-2">
+      <span class="material-symbols-outlined text-[16px] text-accent">calculate</span>
+      <h3 class="font-headline text-[15px] font-semibold text-on-surface">Calculadora de recuperación</h3>
+      <span class="font-mono text-[11px] text-outline ml-auto">Calcula el impacto directo en tu balance</span>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 p-6">
+      <div class="lg:col-span-7">
+        <label for="team-slider" class="block text-[13px] text-on-surface-variant mb-4">
+          Miembros del equipo operativo: <span id="team-size-display" class="text-on-surface font-medium">10 personas</span>
+        </label>
+
+        <input
+          id="team-slider"
+          type="range"
+          min="1"
+          max="50"
+          value="10"
+          aria-label="Tamaño del equipo operativo"
+          class="w-full h-1 rounded-full appearance-none bg-surface-container-highest accent-[#7170ff] cursor-pointer"
+        />
+
+        <div class="flex justify-between mt-3 font-mono text-[11px] text-outline">
+          <span>3 personas</span>
+          <span>10 personas</span>
+          <span>25 personas</span>
+          <span>50+ personas</span>
+        </div>
+
+        <p class="text-[13px] text-on-surface-variant leading-relaxed mt-6 max-w-lg">
+          Ajusta el tamaño de tu equipo operativo para proyectar las horas y el capital que dejas de tirar a
+          la basura cada mes.
+        </p>
+      </div>
+
+      <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+        <div class="p-4 rounded-lg bg-surface-container-highest/40 border border-outline-variant">
+          <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-outline">Tiempo liberado</span>
+          <div id="hours-saved-display" class="font-headline-sm text-[26px] text-on-surface font-semibold mt-1">~80 hrs</div>
+          <span class="text-[12px] text-on-surface-variant">al mes recuperadas</span>
+        </div>
+        <div class="p-4 rounded-lg bg-surface-container-highest/40 border border-outline-variant">
+          <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-outline">Ahorro mensual est.</span>
+          <div id="money-saved-display" class="font-headline-sm text-[26px] text-secondary-container font-semibold mt-1">Bs 3.200</div>
+          <span class="text-[12px] text-on-surface-variant">que vuelven a la empresa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

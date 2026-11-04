@@ -1,0 +1,137 @@
+---
+/**
+ * Miga — el asistente de Digital Dev Tech.
+ * Una gatita (no robot) dibujada en SVG con animaciones propias:
+ * respiración, cola que se mueve, orejas que hacen tic, parpadeo y saludo.
+ * Paleta alineada al sistema "Linear Studio" (índigo + acentos).
+ */
+interface Props {
+  size?: number;
+  animated?: boolean;
+  class?: string;
+}
+const { size = 200, animated = true, class: className = '' } = Astro.props;
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 200 200"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label="Miga, el asistente de Digital Dev Tech"
+  class={className}
+>
+  <defs>
+    <linearGradient id="migaFur" x1="0" y1="0" x2="0.4" y2="1">
+      <stop offset="0%" stop-color="#f2f3fb" />
+      <stop offset="55%" stop-color="#dcdff2" />
+      <stop offset="100%" stop-color="#b9bfe8" />
+    </linearGradient>
+    <linearGradient id="migaCollar" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5e6ad2" />
+      <stop offset="100%" stop-color="#7170ff" />
+    </linearGradient>
+    <radialGradient id="migaAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7170ff" stop-opacity="0.26" />
+      <stop offset="100%" stop-color="#7170ff" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Aura orbital -->
+  {
+    animated && (
+      <circle
+        class="miga-orbit"
+        cx="100"
+        cy="100"
+        r="88"
+        stroke="#7170ff"
+        stroke-opacity="0.35"
+        stroke-width="1.5"
+        stroke-dasharray="4 12"
+      />
+    )
+  }
+  <circle cx="100" cy="100" r="82" fill="url(#migaAura)" />
+
+  <g class={animated ? 'miga-body' : ''}>
+    <!-- Cola -->
+    <path
+      class={animated ? 'miga-tail' : ''}
+      d="M148 156 C 186 152 194 108 172 82"
+      stroke="#b9bfe8"
+      stroke-width="15"
+      stroke-linecap="round"
+    />
+    <path
+      class={animated ? 'miga-tail' : ''}
+      d="M148 156 C 186 152 194 108 172 82"
+      stroke="#f2f3fb"
+      stroke-width="9"
+      stroke-linecap="round"
+      stroke-opacity="0.6"
+    />
+
+    <!-- Cuerpo -->
+    <ellipse cx="100" cy="152" rx="54" ry="44" fill="url(#migaFur)" />
+    <ellipse cx="100" cy="162" rx="34" ry="30" fill="#ffffff" fill-opacity="0.7" />
+
+    <!-- Patas -->
+    <g class={animated ? 'miga-paw' : ''}>
+      <ellipse cx="74" cy="184" rx="19" ry="12" fill="#dcdff2" />
+      <ellipse cx="74" cy="184" rx="19" ry="12" fill="none" stroke="#9aa0cf" stroke-opacity="0.55" />
+      <path d="M66 180 v8 M74 178 v10 M82 180 v8" stroke="#9aa0cf" stroke-opacity="0.6" stroke-width="1.6" stroke-linecap="round" />
+    </g>
+    <ellipse cx="126" cy="184" rx="19" ry="12" fill="#dcdff2" />
+    <ellipse cx="126" cy="184" rx="19" ry="12" fill="none" stroke="#9aa0cf" stroke-opacity="0.55" />
+    <path d="M118 180 v8 M126 178 v10 M134 180 v8" stroke="#9aa0cf" stroke-opacity="0.6" stroke-width="1.6" stroke-linecap="round" />
+
+    <!-- Collar con medallón -->
+    <path d="M64 132 Q100 150 136 132" stroke="url(#migaCollar)" stroke-width="9" stroke-linecap="round" />
+    <circle cx="100" cy="146" r="10" fill="#0f1011" stroke="#7170ff" stroke-width="2" />
+    <path d="M97 140 L104 146 L97 152" stroke="#828fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Orejas -->
+    <g class={animated ? 'miga-ear-left' : ''}>
+      <path d="M46 76 L40 22 L94 50 Z" fill="url(#migaFur)" stroke="#9aa0cf" stroke-opacity="0.55" stroke-width="2" stroke-linejoin="round" />
+      <path d="M56 70 L52 40 L84 58 Z" fill="#ffb3c1" fill-opacity="0.75" />
+    </g>
+    <g class={animated ? 'miga-ear-right' : ''}>
+      <path d="M154 76 L160 22 L106 50 Z" fill="url(#migaFur)" stroke="#9aa0cf" stroke-opacity="0.55" stroke-width="2" stroke-linejoin="round" />
+      <path d="M144 70 L148 40 L116 58 Z" fill="#ffb3c1" fill-opacity="0.75" />
+    </g>
+
+    <!-- Cabeza -->
+    <ellipse cx="100" cy="88" rx="58" ry="52" fill="url(#migaFur)" />
+    <ellipse cx="100" cy="104" rx="34" ry="24" fill="#ffffff" fill-opacity="0.65" />
+
+    <!-- Mejillas -->
+    <ellipse cx="58" cy="100" rx="11" ry="7" fill="#ff9db0" fill-opacity="0.35" />
+    <ellipse cx="142" cy="100" rx="11" ry="7" fill="#ff9db0" fill-opacity="0.35" />
+
+    <!-- Ojos -->
+    <g class={animated ? 'miga-eye' : ''}>
+      <ellipse cx="80" cy="86" rx="13" ry="15" fill="#7170ff" />
+      <ellipse cx="80" cy="86" rx="6.5" ry="9" fill="#0b0c1a" />
+      <circle cx="84" cy="80" r="3.4" fill="#ffffff" />
+      <ellipse cx="120" cy="86" rx="13" ry="15" fill="#7170ff" />
+      <ellipse cx="120" cy="86" rx="6.5" ry="9" fill="#0b0c1a" />
+      <circle cx="124" cy="80" r="3.4" fill="#ffffff" />
+    </g>
+
+    <!-- Nariz y boca -->
+    <path d="M100 100 l-7 -7 h14 z" fill="#ff8098" stroke="#ff8098" stroke-width="3" stroke-linejoin="round" />
+    <path d="M100 104 q-8 11 -16 3" stroke="#6b6480" stroke-width="2.6" stroke-linecap="round" fill="none" />
+    <path d="M100 104 q8 11 16 3" stroke="#6b6480" stroke-width="2.6" stroke-linecap="round" fill="none" />
+
+    <!-- Bigotes -->
+    <g stroke="#9aa0cf" stroke-width="2" stroke-linecap="round" stroke-opacity="0.8">
+      <path d="M50 96 L24 88" />
+      <path d="M50 104 L22 106" />
+      <path d="M150 96 L176 88" />
+      <path d="M150 104 L178 106" />
+    </g>
+  </g>
+</svg>

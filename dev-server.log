@@ -1,0 +1,54 @@
+
+> digital-devtech@0.0.1 dev
+> astro dev --host 127.0.0.1 --port 4331
+
+[32m✔[0m [33mConsole Ninja[0m extension is connected to [33mVite[0m, see [36mhttps://tinyurl.com/2vt8jxzw[0m
+[vite] connected.
+[2m12:55:02[22m [34m[types][39m Generated [2m2ms[22m
+[vite] connected.
+[2m12:55:02[22m [34m[vite][39m Re-optimizing dependencies because vite config has changed
+[42m[1m astro [22m[49m [32mv6.4.6[39m [2mready in[22m 4077 [2mms[22m
+[2m┃[22m Local    [36mhttp://127.0.0.1:4331/[39m
+[2m12:55:02[22m [32mwatching for file changes...[39m
+[2m12:55:06[22m [34m[200][39m / [2m63ms[22m
+[2m12:55:12[22m [34m[200][39m / [2m6ms[22m
+[33m[1m12:55:14[22m [WARN] [router][39m Blocked cross-origin request to /logo-ddt.svg (Sec-Fetch-Site: cross-site, Sec-Fetch-Mode: no-cors). Cross-origin subresource requests are not allowed on the dev server for security reasons.
+[2m12:55:25[22m [33m[404][39m /camaras [2m9ms[22m
+[2m12:55:25[22m [34m[200][39m / [2m16ms[22m
+[2m12:58:16[22m [33m[404][39m /camaras [2m2ms[22m
+[2m12:59:50[22m [34m[watch][39m /src/styles/global.css
+[2m12:59:50[22m [34m[watch][39m /src/styles/global.css
+[2m12:59:50[22m [34m[watch][39m /src/styles/global.css
+[2m12:59:50[22m [34m[watch][39m /src/styles/global.css
+[2m13:00:31[22m [34m[200][39m / [2m17ms[22m
+[2m13:00:32[22m [33m[404][39m /camaras [2m2ms[22m
+[2m13:05:14[22m [34m[watch][39m /src/styles/global.css
+[2m13:05:15[22m [34m[200][39m / [2m130ms[22m
+[2m13:05:50[22m [34m[watch][39m /src/styles/global.css
+[2m13:05:51[22m [34m[200][39m / [2m69ms[22m
+[2m13:05:58[22m [34m[watch][39m /src/styles/global.css
+[2m13:05:58[22m [34m[200][39m / [2m55ms[22m
+[2m13:06:09[22m [34m[watch][39m /src/styles/global.css
+[2m13:06:10[22m [34m[200][39m / [2m52ms[22m
+[2m13:06:56[22m [34m[200][39m / [2m8ms[22m
+[2m13:07:48[22m [34m[200][39m / [2m11ms[22m
+[33m[1m13:08:06[22m [WARN] [router][39m Blocked cross-origin request to /logo-ddt.svg (Sec-Fetch-Site: cross-site, Sec-Fetch-Mode: no-cors). Cross-origin subresource requests are not allowed on the dev server for security reasons.
+[2m13:08:31[22m [34m[200][39m / [2m17ms[22m
+[2m13:08:39[22m [34m[200][39m / [2m13ms[22m
+[2m13:09:15[22m [34m[200][39m / [2m53ms[22m
+[2m13:09:22[22m [34m[200][39m / [2m11ms[22m
+[2m13:09:30[22m [34m[200][39m / [2m10ms[22m
+[2m13:10:05[22m [34m[watch][39m /src/styles/global.css
+[2m13:10:05[22m [34m[200][39m / [2m78ms[22m
+[2m13:10:10[22m [34m[watch][39m /src/styles/global.css
+[2m13:10:10[22m [34m[200][39m / [2m57ms[22m
+[2m13:10:27[22m [34m[200][39m / [2m17ms[22m
+[2m13:10:38[22m [34m[200][39m / [2m10ms[22m
+[2m13:11:03[22m [34m[200][39m / [2m8ms[22m
+[2m13:11:34[22m [34m[200][39m / [2m8ms[22m
+[vite] program reload
+[vite] An error happened during full reload
+Failed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?
+Error: Failed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?
+    at loadAndTransform (file:///C:/Users/JORGE%201305/Desktop/digital-devtech/node_modules/vite/dist/node/chunks/config.js:22739:33)
+[2m13:12:16[22m [34m[200][39m / [2m38ms[22m

@@ -1,462 +1,372 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
-
-import img1 from '../assets/fondoMinimarket.jpg';
-import service1 from '../assets/ecommerce.png';
-import service2 from '../assets/landing-page.png';
-import service3 from '../assets/sistema-ventas.png';
-import service4 from '../assets/sistema-empresarial.png';
-import logo from '../assets/logoDevTech.png';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Process from '../components/Process.astro';
+import ProblemSolution from '../components/ProblemSolution.astro';
+import Compare from '../components/Compare.astro';
+import MigaSpotlight from '../components/MigaSpotlight.astro';
+import Services from '../components/Services.astro';
+import SoftwareModules from '../components/SoftwareModules.astro';
+import Pricing from '../components/Pricing.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import AssistantWidget from '../components/AssistantWidget.astro';
 ---
 
-<Layout>
-  <div class="relative min-h-screen bg-[#030712] text-slate-100 font-sans selection:bg-emerald-500 selection:text-black overflow-x-hidden">
-    
-    {/* Fondo con malla moderna y orbes de luz */}
-    <div class="fixed inset-0 pointer-events-none z-0">
-      <div class="absolute -top-40 -left-40 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
-      <div class="absolute top-1/2 -right-40 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(#1f2937_1px,transparent_1px)] bg-size-[32px_32px] opacity-40"></div>
-    </div>
+<BaseLayout title="Digital Dev Tech | Software Inteligente, Apps y Sistemas ERP">
+  <Header />
+  <main>
+    <Hero />
+    <Process />
+    <ProblemSolution />
+    <Compare />
+    <MigaSpotlight />
+    <Services />
+    <SoftwareModules />
+    <Pricing />
+    <Contact />
+  </main>
+  <Footer />
+  <AssistantWidget />
 
-    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-{/* Dynamic Floating Header */}
-<header x-data="{ mobileMenuOpen: false }" class="sticky top-4 z-50 my-4  bg-slate-900 border border-slate-800/80 rounded-2xl px-4 sm:px-6 py-3 flex items-center justify-between shadow-2xl shadow-emerald-950/20">
-  
-  {/* Logo */}
-  <a href="#inicio" class="shrink-0">
-    <Image src={logo} alt="DigitalDevTech" class="h-10 w-48 sm:w-56 object-cover" />
-  </a>
+  <script is:inline>
+    (function () {
+      function initSite() {
+        // ---------------------------------------------------------
+        // 1. Menú móvil
+        // ---------------------------------------------------------
+        var menuBtn = document.getElementById('mobile-menu-btn');
+        var menu = document.getElementById('mobile-menu');
+        if (menuBtn && menu) {
+          menuBtn.addEventListener('click', function () {
+            menu.classList.toggle('hidden');
+          });
+          menu.querySelectorAll('a').forEach(function (a) {
+            a.addEventListener('click', function () {
+              menu.classList.add('hidden');
+            });
+          });
+        }
 
-  {/* Menú Desktop: Usamos max-lg:hidden para evitar conflictos con la especificidad de 'hidden' */}
-  <nav class="max-lg:hidden lg:flex items-center space-x-1 bg-slate-950/50 p-1.5 rounded-xl border border-slate-800">
-    <a href="#inicio" class="px-3 xl:px-4 py-1.5 text-xs font-medium text-emerald-400 bg-slate-800/80 rounded-lg shadow-sm whitespace-nowrap">Inicio</a>
-    <a href="#nuestra-tecnologia" class="px-3 xl:px-4 py-1.5 text-xs font-medium text-slate-400 hover:text-white transition-all whitespace-nowrap">Nuestra tecnología</a>
-    <a href="#servicios" class="px-3 xl:px-4 py-1.5 text-xs font-medium text-slate-400 hover:text-white transition-all whitespace-nowrap">Servicios</a>
-    <a href="/camaras" class="px-3 xl:px-4 py-1.5 text-xs font-medium text-slate-400 hover:text-white transition-all whitespace-nowrap">Instalación de cámaras</a>
-    <a href="#contactos" class="px-3 xl:px-4 py-1.5 text-xs font-medium text-slate-400 hover:text-white transition-all whitespace-nowrap">Contactos</a>
-  </nav>
+        // ---------------------------------------------------------
+        // 2. Formulario de contacto -> WhatsApp
+        // ---------------------------------------------------------
+        var whatsappBtn = document.getElementById('btn-whatsapp-submit');
+        if (whatsappBtn) {
+          whatsappBtn.addEventListener('click', function () {
+            var nameEl = document.getElementById('client-name');
+            var serviceEl = document.getElementById('client-service');
+            var notesEl = document.getElementById('client-notes');
+            var name = nameEl && nameEl.value.trim() ? nameEl.value.trim() : '';
+            var service = serviceEl ? serviceEl.value : '';
+            var notes = notesEl && notesEl.value.trim() ? notesEl.value.trim() : '';
 
-  {/* CTA Desktop */}
-  <div class="max-lg:hidden lg:block">
-    <a href="https://wa.me/59171961698?text=Hola,%20me%20gustaría%20solicitar%20una%20cotización" class="bg-linear-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-black font-semibold text-xs py-2.5 px-5 rounded-xl transition-all shadow-lg shadow-emerald-500/20 whitespace-nowrap">
-      Solicita una cotización
-    </a>
-  </div>
+            if (!name) {
+              alert('Por favor, ingresa tu nombre o el de tu empresa para poder personalizar tu propuesta.');
+              if (nameEl) nameEl.focus();
+              return;
+            }
 
-  {/* Botón Hamburguesa (Móviles y Tablets < 1024px) */}
-  <button 
-    @click="mobileMenuOpen = !mobileMenuOpen" 
-    type="button" 
-    class="lg:hidden p-2 text-slate-300 hover:text-white focus:outline-none bg-slate-800/60 rounded-xl border border-slate-700/50 cursor-pointer"
-    aria-label="Abrir menú"
-  >
-    <svg x-show="!mobileMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-    </svg>
-    <svg x-show="mobileMenuOpen" x-cloak class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-    </svg>
-  </button>
+            var message =
+              'Hola, mi nombre es ' +
+              name +
+              '. Me pongo en contacto desde Digital Dev Tech para cotizar: *' +
+              service +
+              '*.\n\nDetalles del proyecto:\n' +
+              (notes || 'Deseo coordinar una llamada de diagnóstico técnico.');
+            window.open('https://wa.me/59171961698?text=' + encodeURIComponent(message), '_blank');
+          });
+        }
 
-  {/* MENÚ LATERAL DRAWER (Móviles y Tablets < 1024px) */}
-  <div 
-    x-show="mobileMenuOpen" 
-    x-cloak
-    class="fixed inset-0 z-50 lg:hidden"
-  >
-    <div 
-      x-show="mobileMenuOpen"
-      x-transition:enter="transition ease-out duration-300"
-      x-transition:enter-start="opacity-0"
-      x-transition:enter-end="opacity-100"
-      x-transition:leave="transition ease-in duration-200"
-      x-transition:leave-start="opacity-100"
-      x-transition:leave-end="opacity-0"
-      @click="mobileMenuOpen = false" 
-      class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm"
-    ></div>
+        // ---------------------------------------------------------
+        // 3. Calculadora de recuperación (ROI)
+        // ---------------------------------------------------------
+        var slider = document.getElementById('team-slider');
+        var teamDisplay = document.getElementById('team-size-display');
+        var hoursDisplay = document.getElementById('hours-saved-display');
+        var moneyDisplay = document.getElementById('money-saved-display');
 
-    <div 
-      x-show="mobileMenuOpen"
-      x-transition:enter="transition ease-out duration-300 transform"
-      x-transition:enter-start="translate-x-full"
-      x-transition:enter-end="translate-x-0"
-      x-transition:leave="transition ease-in duration-200 transform"
-      x-transition:leave-start="translate-x-0"
-      x-transition:leave-end="translate-x-full"
-      class="fixed inset-y-0 right-0 w-full max-w-xs bg-slate-900 border-l border-slate-800 p-6 flex flex-col justify-between shadow-2xl z-50"
-    >
-      <div>
-        <div class="flex items-center justify-between pb-6 border-b border-slate-800">
-          <Image src={logo} alt="DigitalDevTech" class="h-8 w-40 object-cover" />
-          <button 
-            @click="mobileMenuOpen = false"
-            class="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white"
-          >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
+        function formatMoney(value) {
+          var rounded = Math.round(value);
+          var parts = String(rounded).split('.');
+          var integer = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+          return 'Bs ' + integer;
+        }
 
-        <nav class="flex flex-col space-y-3 mt-6">
-          <a href="#inicio" @click="mobileMenuOpen = false" class="px-4 py-3 rounded-xl bg-slate-800/80 text-emerald-400 font-medium text-sm flex items-center justify-between border border-emerald-500/20">
-            <span>Inicio</span>
-            <span class="text-xs">→</span>
-          </a>
-          <a href="#nuestra-tecnologia" @click="mobileMenuOpen = false" class="px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800/50 hover:text-white text-sm font-medium transition-colors">
-            Nuestra tecnología
-          </a>
-          <a href="#servicios" @click="mobileMenuOpen = false" class="px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800/50 hover:text-white text-sm font-medium transition-colors">
-            Servicios
-          </a>
-          <a href="/camaras" @click="mobileMenuOpen = false" class="px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800/50 hover:text-white text-sm font-medium transition-colors">
-            Instalación de cámaras
-          </a>
-          <a href="#contactos" @click="mobileMenuOpen = false" class="px-4 py-3 rounded-xl text-slate-300 hover:bg-slate-800/50 hover:text-white text-sm font-medium transition-colors">
-            Contactos
-          </a>
-        </nav>
-      </div>
+        function updateRoi(value) {
+          var people = Math.max(1, Math.min(50, value));
+          var hours = people * 8;
+          var money = hours * 40;
+          if (teamDisplay) {
+            teamDisplay.textContent =
+              people + (people === 1 ? ' persona' : people >= 50 ? '+ personas' : ' personas');
+          }
+          if (hoursDisplay) hoursDisplay.textContent = '~' + hours + ' hrs';
+          if (moneyDisplay) moneyDisplay.textContent = formatMoney(money);
+        }
 
-      <div class="pt-6 border-t border-slate-800 space-y-4">
-        <a href="https://wa.me/59171961698?text=Hola,%20me%20gustaría%20solicitar%20una%20cotización" @click="mobileMenuOpen = false" class="block text-center bg-linear-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-black font-semibold text-xs py-3 px-5 rounded-xl transition-all shadow-lg shadow-emerald-500/20">
-          Solicita una cotización
-        </a>
-        <div class="text-center">
-          <p class="text-[11px] text-slate-500">DIGITAL DEV TECH</p>
-          <p class="text-[11px] text-emerald-400/80 font-mono">jorgejano97@gmail.com</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+        if (slider) {
+          slider.addEventListener('input', function (e) {
+            updateRoi(parseInt(e.target.value, 10));
+          });
+          updateRoi(parseInt(slider.value, 10));
+        }
 
-      {/* HERO SECTION: Asymmetrical Layout */}
-      <section id="inicio" class="pt-12 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <div class="lg:col-span-7 space-y-6">
-          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-800/50 text-emerald-400 text-xs font-medium">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span>Tecnología avanzada para tu negocio</span>
-          </div>
+        // ---------------------------------------------------------
+        // 4. Miga: chat flotante + saludo animado
+        // ---------------------------------------------------------
+        var chat = document.getElementById('miga-chat');
+        var toggleBtn = document.getElementById('miga-toggle');
+        var closeBtn = document.getElementById('miga-close');
+        var messages = document.getElementById('miga-messages');
+        var input = document.getElementById('miga-input');
+        var form = document.getElementById('miga-form');
+        var headerBtn = document.getElementById('header-miga-btn');
+        var spotlightBtn = document.getElementById('spotlight-miga-btn');
+        var notify = document.getElementById('miga-notify');
+        var greeting = document.getElementById('miga-greeting');
+        var greetingText = document.getElementById('miga-greeting-text');
+        var greetingClose = document.getElementById('miga-greeting-close');
 
-          <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-none">
-            Tecnología digital <br/>
-            <span class="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 via-teal-300 to-sky-400">
-              Transformamos tu tiempo
-            </span> <br/>
-            <span class="text-sky-400">En Oro.</span>
-          </h1>
+        var GREETING =
+          '¡Hola! ¿Cómo estás? Soy Miga, tu asistente en Digital Dev Tech. Listo para dejar los procesos manuales y tediosos: cuéntame y te digo cómo automatizarlos.';
 
-          <p class="text-slate-400 text-base sm:text-lg max-w-xl leading-relaxed">
-            <strong class="text-slate-200">DIGITAL DEV TECH:</strong> Tu negocio con soluciones digitales, mayor rendimiento a corto plazo. Ahorras procesos largos y tediosos difíciles de realizar.
-          </p>
+        var respuestas = [
+          {
+            claves: ['precio', 'cuesta', 'cuanto', 'cuánto', 'valor', 'presupuesto'],
+            texto:
+              'Trabajamos con alcance y precio definidos por proyecto: sabes qué se va a construir y cuánto vas a pagar antes de empezar. Te armo una estimación en minutos según lo que cuentes en el formulario.',
+          },
+          {
+            claves: ['app', 'movil', 'móvil', 'iphone', 'android'],
+            texto:
+              'Claro que sí 🐾 Las apps móviles las hacemos con QR, notificaciones y uso sin conexión. Se publican en las tiendas en 4 a 6 semanas. ¿La necesitas para vender, para pedir pedidos o para controlar tu equipo?',
+          },
+          {
+            claves: ['automatizar', 'automatiza', 'proceso', 'manual', 'tedioso'],
+            texto:
+              'Eso es justo lo que hago yo ⚡ Cargo tus facturas, el stock y los pedidos y los dejo ordenados y automáticos. Cuéntame qué tarea se repite más en tu día y te muestro cómo queda automatizada.',
+          },
+          {
+            claves: ['cotizar', '24', 'contacto', 'hablar', 'asesoria', 'asesoría'],
+            texto:
+              'Perfecto. Te paso con el equipo: completa el formulario de contacto y te respondemos con un diagnóstico técnico y la cotización en menos de 24 horas.',
+          },
+          {
+            claves: ['erp', 'panel', 'inventario', 'stock', 'gestion', 'gestión'],
+            texto:
+              'El ERP lo armamos a la medida de tu operación: inventario, ventas, facturación y permisos por rol. Con panel web y datos siempre actualizados 📊',
+          },
+          {
+            claves: ['catalogo', 'catálogo', 'whatsapp', 'qr'],
+            texto:
+              'Con WhatsApp Business puedes tener catálogo, carrito y pedido con QR. El pedido llega directo al chat de tu equipo sin que nadie teclee nada 🛒',
+          },
+        ];
 
-          <div class="flex flex-wrap gap-3 pt-2">
-            <span class="px-4 py-2 bg-slate-900 border border-slate-800 text-xs font-mono text-emerald-400 rounded-lg"># Tiempo</span>
-            <span class="px-4 py-2 bg-slate-900 border border-slate-800 text-xs font-mono text-emerald-400 rounded-lg"># Automatización</span>
-            <span class="px-4 py-2 bg-slate-900 border border-slate-800 text-xs font-mono text-emerald-400 rounded-lg"># Digitalización</span>
-          </div>
-        </div>
+        function esc(text) {
+          return String(text).replace(/[&<>"]/g, function (c) {
+            return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+          });
+        }
 
-        {/* Hero Card Accent */}
-        <div class="lg:col-span-5 relative">
-          <div class="absolute inset-0 bg-linear-to-tr from-emerald-500 to-sky-500 rounded-3xl blur-2xl opacity-20"></div>
-          <div class="relative bg-slate-900/90 border border-slate-800 rounded-3xl p-6 backdrop-blur-xl shadow-2xl">
-            <div class="flex justify-between items-center pb-4 mb-4 border-b border-slate-800">
-              <span class="text-xs font-mono text-slate-400">STATUS_SYSTEM</span>
-              <span class="text-xs font-mono text-emerald-400">● OPTIMIZADO</span>
-            </div>
-            <div class="space-y-4">
-              <div class="p-4 bg-slate-950/60 rounded-2xl border border-slate-800/80">
-                <p class="text-xs text-slate-400">Rendimiento Estimado</p>
-                <p class="text-2xl font-bold text-white mt-1">+100% Eficiencia</p>
-              </div>
-              <div class="p-4 bg-slate-950/60 rounded-2xl border border-slate-800/80">
-                <p class="text-xs text-slate-400">Reducción de Procesos</p>
-                <p class="text-2xl font-bold text-emerald-400 mt-1">-80% Tiempo Manual</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        function appendUser(text) {
+          if (!messages) return;
+          var wrap = document.createElement('div');
+          wrap.className = 'flex items-start justify-end gap-2';
+          wrap.innerHTML =
+            '<div class="rounded-xl rounded-tr-sm bg-[#e5e5e6] text-[#08090a] p-3 text-[13px] font-medium max-w-[85%]">' +
+            esc(text) +
+            '</div>';
+          messages.appendChild(wrap);
+          messages.scrollTop = messages.scrollHeight;
+        }
 
-      {/* BENTO GRID: Nuestra Tecnología */}
-      <section id="nuestra-tecnologia" class="py-16">
-        <div class="mb-10">
-          <p class="text-xs font-mono text-emerald-400 uppercase tracking-widest">Nuestra Tecnología</p>
-          <h2 class="text-3xl font-bold text-white mt-1">TU TIEMPO ES ORO</h2>
-          <p class="text-slate-400 text-sm mt-1">Toda la información de nuestro trabajo</p>
-        </div>
+        function appendBot(text) {
+          if (!messages) return;
+          var wrap = document.createElement('div');
+          wrap.className = 'flex items-start gap-2.5';
+          wrap.innerHTML =
+            '<span class="w-7 h-7 rounded-lg bg-surface-container-lowest border border-outline-variant overflow-hidden shrink-0">' +
+            '<img src="/miga-avatar.svg" alt="Miga" class="w-full h-full object-cover"/></span>' +
+            '<div class="rounded-xl rounded-tl-sm bg-surface-container-highest/60 border border-outline-variant p-3.5 text-on-surface text-[13px] leading-relaxed">' +
+            esc(text) +
+            '</div>';
+          messages.appendChild(wrap);
+          messages.scrollTop = messages.scrollHeight;
+        }
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-          <div class="md:col-span-4 bg-slate-900/50 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between hover:border-emerald-500/40 transition-colors">
-            <div>
-              <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-6">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2">Ahorro inteligente</h3>
-              <p class="text-slate-400 text-xs leading-relaxed">Nuestra soluciones digitales al alcance de todos los negocios ahorra tiempo, liberando recursos valiosos y reduciendo costos operativos fijos para potenciar el crecimiento sostenible de tu negocio o empresa.</p>
-            </div>
-            <div class="mt-8 pt-4 border-t border-slate-800/80 flex justify-between items-center">
-              <span class="text-xs text-slate-400">Taza de éxito</span>
-              <span class="text-lg font-bold text-emerald-400">99 %</span>
-            </div>
-          </div>
+        function typingBubble() {
+          if (!messages) return null;
+          var wrap = document.createElement('div');
+          wrap.className = 'flex items-start gap-2.5';
+          wrap.innerHTML =
+            '<span class="w-7 h-7 rounded-lg bg-surface-container-lowest border border-outline-variant overflow-hidden shrink-0">' +
+            '<img src="/miga-avatar.svg" alt="Miga" class="w-full h-full object-cover"/></span>' +
+            '<div class="rounded-xl rounded-tl-sm bg-surface-container-highest/60 border border-outline-variant px-4 py-3.5"><span class="inline-flex gap-1">' +
+            '<span class="w-1.5 h-1.5 rounded-full bg-accent animate-bounce" style="animation-delay:0s"></span>' +
+            '<span class="w-1.5 h-1.5 rounded-full bg-accent animate-bounce" style="animation-delay:.15s"></span>' +
+            '<span class="w-1.5 h-1.5 rounded-full bg-accent animate-bounce" style="animation-delay:.3s"></span>' +
+            '</span></div>';
+          messages.appendChild(wrap);
+          messages.scrollTop = messages.scrollHeight;
+          return wrap;
+        }
 
-          <div class="md:col-span-4 bg-slate-900/50 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between hover:border-emerald-500/40 transition-colors">
-            <div>
-              <div class="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 mb-6">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-2">Procesos más cortos</h3>
-              <p class="text-slate-400 text-xs leading-relaxed">Simplificamos flujos de trabajo diarios para reducir cuellos de botella, transformando tareas complejas en acciones rápidas de ejecutar.</p>
-            </div>
-            <div class="mt-8 pt-4 border-t border-slate-800/80 flex justify-between items-center">
-              <span class="text-xs text-slate-400">Taza de éxito</span>
-              <span class="text-lg font-bold text-emerald-400">99 %</span>
-            </div>
-          </div>
+        function responder(texto) {
+          var lower = texto.toLowerCase();
+          var encontrada = null;
+          for (var i = 0; i < respuestas.length; i++) {
+            var r = respuestas[i];
+            for (var j = 0; j < r.claves.length; j++) {
+              if (lower.indexOf(r.claves[j]) !== -1) {
+                encontrada = r.texto;
+                break;
+              }
+            }
+            if (encontrada) break;
+          }
+          if (!encontrada) {
+            encontrada =
+              '¡Buena pregunta! 🐾 Lo anoto para el equipo de ingenieros: me cuentalo por WhatsApp al +591 71961698 y te respondemos con el plan técnico el mismo día.';
+          }
+          var t = typingBubble();
+          setTimeout(function () {
+            if (t && t.parentNode) t.parentNode.removeChild(t);
+            appendBot(encontrada);
+          }, 620);
+        }
 
-          <div class="md:col-span-4 bg-slate-900/50 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between">
-            <div>
-              <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-800/40 px-2 py-0.5 rounded">LA MEJOR EXPERIENCIA DIGITAL</span>
-              <h3 class="text-lg font-bold text-white mt-3">Negocios Inteligentes con nuestras soluciones</h3>
-              <p class="text-slate-400 text-xs mt-2 leading-relaxed">Todas nuestras soluciones en un solo lugar para expandir tu alcance y atraer más clientes en tiempo récord.</p>
-            </div>
+        function abrirChat(mensaje) {
+          if (!chat) return;
+          chat.classList.remove('hidden');
+          if (notify) notify.style.display = 'none';
+          if (greeting) greeting.classList.add('hidden');
+          if (mensaje) {
+            appendUser(mensaje);
+            responder(mensaje);
+          }
+        }
 
-            <div class="my-4 overflow-hidden rounded-xl border border-slate-800">
-              <Image src={img1} alt="Dashboard de negocio inteligente" class="w-full h-32 object-cover" />
-            </div>
+        function cerrarChat() {
+          if (chat) chat.classList.add('hidden');
+        }
 
-            <div class="grid grid-cols-3 gap-2 text-center pt-2 border-t border-slate-800">
-              <div>
-                <p class="text-xs font-bold text-emerald-400">100%</p>
-                <p class="text-[10px] text-slate-500">Eficaz Digital</p>
-              </div>
-              <div>
-                <p class="text-xs font-bold text-emerald-400">100%</p>
-                <p class="text-[10px] text-slate-500">Mayor Rendimiento</p>
-              </div>
-              <div>
-                <p class="text-xs font-bold text-emerald-400">100%</p>
-                <p class="text-[10px] text-slate-500">Personalizado</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        if (toggleBtn) {
+          toggleBtn.addEventListener('click', function () {
+            if (chat && chat.classList.contains('hidden')) {
+              abrirChat();
+            } else {
+              cerrarChat();
+            }
+          });
+        }
+        if (closeBtn) closeBtn.addEventListener('click', cerrarChat);
+        if (headerBtn) {
+          headerBtn.addEventListener('click', function () {
+            abrirChat();
+          });
+        }
+        if (spotlightBtn) {
+          spotlightBtn.addEventListener('click', function () {
+            abrirChat('¡Hola Miga! Cuéntame cómo automatizar mi empresa');
+          });
+        }
 
-      {/* SERVICIOS: Horizontal Interactive Cards */}
-      <section id="servicios" class="py-16">
-        <div class="mb-10">
-          <p class="text-xs font-mono text-emerald-400 uppercase tracking-widest">Nuestros Servicios</p>
-          <h2 class="text-3xl font-bold text-white mt-1">Conoce los servicios que ofrecemos</h2>
-        </div>
+        document.querySelectorAll('.miga-chip').forEach(function (chip) {
+          chip.addEventListener('click', function () {
+            var prompt = chip.getAttribute('data-prompt') || '';
+            appendUser(prompt);
+            responder(prompt);
+          });
+        });
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          {/* Servicio 1 */}
-          <div x-data="{ tab: 'linktree' }" class="bg-slate-900/40 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all group">
-            <div>
-              <div class="overflow-hidden rounded-xl mb-4 border border-slate-800 group-hover:border-slate-700">
-                <Image src={service1} alt="Catálogos/Productos" class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
+        if (form) {
+          form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (!input) return;
+            var value = input.value.trim();
+            if (!value) return;
+            input.value = '';
+            appendUser(value);
+            responder(value);
+          });
+        }
 
-              <h3 class="font-bold text-white text-base">Catálogos / Productos</h3>
-              <p class="text-xs text-slate-400 mt-1">Muestra tus productos de manera rápida y organizada.</p>
-              
-              <div class="grid grid-cols-2 gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800/80 mt-4">
-                <button type="button" @click="tab = 'linktree'" :class="tab === 'linktree' ? 'bg-emerald-500 text-black font-bold shadow-md shadow-emerald-500/20' : 'text-slate-400 hover:text-white font-medium'" class="py-1.5 text-[11px] rounded-lg transition-all duration-200 cursor-pointer">Linktree</button>
-                <button type="button" @click="tab = 'tienda'" :class="tab === 'tienda' ? 'bg-emerald-500 text-black font-bold shadow-md shadow-emerald-500/20' : 'text-slate-400 hover:text-white font-medium'" class="py-1.5 text-[11px] rounded-lg transition-all duration-200 cursor-pointer">Tienda Online</button>
-              </div>
+        // Saludo automático con efecto de escritura
+        if (greeting && greetingText) {
+          setTimeout(function () {
+            greeting.classList.remove('hidden');
+            greeting.classList.add('animate-bubble');
+            var i = 0;
+            var timer = setInterval(function () {
+              greetingText.textContent = GREETING.slice(0, i);
+              i += 2;
+              if (i >= GREETING.length) {
+                clearInterval(timer);
+                greetingText.textContent = GREETING;
+              }
+            }, 22);
+            // La burbuja se retira sola para no tapar el contenido
+            setTimeout(function () {
+              if (greeting && !greeting.classList.contains('hidden')) {
+                greeting.classList.add('hidden');
+              }
+            }, 15000);
+          }, 2200);
+        }
+        if (greetingClose && greeting) {
+          greetingClose.addEventListener('click', function () {
+            greeting.classList.add('hidden');
+          });
+        }
 
-              <div x-show="tab === 'linktree'" class="mt-4 pt-3 border-t border-slate-800/80">
-                <p class="text-[11px] font-semibold text-emerald-400 mb-2">Incluye (Linktree):</p>
-                <ul class="text-[11px] text-slate-400 space-y-1.5">
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Link redes sociales.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Link WhatsApp Business.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Catálogo de productos.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Personalización a tu medida.</li>
-                </ul>
-              </div>
+        // ---------------------------------------------------------
+        // 5. Animaciones de entrada al hacer scroll
+        // ---------------------------------------------------------
+        var revealEls = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+        revealEls.forEach(function (el) {
+          var parent = el.parentElement;
+          if (!parent) return;
+          var siblings = Array.prototype.slice
+            .call(parent.children)
+            .filter(function (c) {
+              return c.hasAttribute('data-reveal');
+            });
+          var index = siblings.indexOf(el);
+          if (index > 0 && !el.style.getPropertyValue('--ddt-delay')) {
+            el.style.setProperty('--ddt-delay', Math.min(index, 6) * 90 + 'ms');
+          }
+        });
 
-              <div x-show="tab === 'tienda'" x-cloak class="mt-4 pt-3 border-t border-slate-800/80">
-                <p class="text-[11px] font-semibold text-emerald-400 mb-2">Incluye (Tienda Online):</p>
-                <ul class="text-[11px] text-slate-400 space-y-1.5">
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Página con tus productos.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> QR redireccionado a tu WhatsApp.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Carrito de Compras.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> De 20 a 30 productos.</li>
-                </ul>
-              </div>
-            </div>
+        if (typeof IntersectionObserver === 'function') {
+          var observer = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible');
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+          );
+          revealEls.forEach(function (el) {
+            observer.observe(el);
+          });
+        } else {
+          revealEls.forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+        }
+      }
 
-            <button class="mt-6 w-full py-2.5 bg-slate-800 hover:bg-emerald-500 hover:text-black text-slate-200 text-xs font-semibold rounded-xl transition-all cursor-pointer">Más información</button>
-          </div>
-
-          {/* Servicio 2 */}
-          <div x-data="{ tab: 'landing' }" class="bg-slate-900/40 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all group">
-            <div>
-              <div class="overflow-hidden rounded-xl mb-4 border border-slate-800 group-hover:border-slate-700">
-                <Image src={service2} alt="Landing Page / Página web" class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-
-              <h3 class="font-bold text-white text-base">Landing Page / Página web</h3>
-              <p class="text-xs text-slate-400 mt-1">Haz que tu negocio sea conocido promociona tus servicios.</p>
-
-              <div class="grid grid-cols-2 gap-1 bg-slate-950 p-1 rounded-xl border border-slate-800/80 mt-4">
-                <button type="button" @click.prevent="tab = 'landing'" :class="tab === 'landing' ? 'bg-emerald-500 text-black font-bold shadow-md shadow-emerald-500/20' : 'text-slate-400 hover:text-white font-medium'" class="py-1.5 text-[11px] rounded-lg transition-all duration-200 cursor-pointer">Landing Page</button>
-                <button type="button" @click.prevent="tab = 'web'" :class="tab === 'web' ? 'bg-emerald-500 text-black font-bold shadow-md shadow-emerald-500/20' : 'text-slate-400 hover:text-white font-medium'" class="py-1.5 text-[11px] rounded-lg transition-all duration-200 cursor-pointer">Página Web</button>
-              </div>
-
-              <div x-show="tab === 'landing'" class="mt-4 pt-3 border-t border-slate-800/80">
-                <p class="text-[11px] font-semibold text-emerald-400 mb-2">Incluye (Landing Page):</p>
-                <ul class="text-[11px] text-slate-400 space-y-1.5">
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Hosting / dominio.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Botón llamada a acción.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Información y ubicación del negocio.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Soporte técnico 2 meses.</li>
-                </ul>
-              </div>
-
-              <div x-show="tab === 'web'" x-cloak class="mt-4 pt-3 border-t border-slate-800/80">
-                <p class="text-[11px] font-semibold text-emerald-400 mb-2">Incluye (Página Web):</p>
-                <ul class="text-[11px] text-slate-400 space-y-1.5">
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Pagina divida por secciones.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Hosting / dominio.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Soporte técnico 3 meses.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Botón redirección a WhatsApp.</li>
-                </ul>
-              </div>
-            </div>
-
-            <button type="button" class="mt-6 w-full py-2.5 bg-slate-800 hover:bg-emerald-500 hover:text-black text-slate-200 text-xs font-semibold rounded-xl transition-all cursor-pointer">Más información</button>
-          </div>
-
-          {/* Servicio 3 */}
-          <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all group">
-            <div>
-              <div class="overflow-hidden rounded-xl mb-4 border border-slate-800 group-hover:border-slate-700">
-                <Image src={service3} alt="Sistemas medianos" class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-              <h3 class="font-bold text-white text-base">Sistemas medianos</h3>
-              <p class="text-xs text-slate-400 mt-1">Servicio de software totalmente funcional y completo.</p>
-              
-              <div class="mt-4 pt-4 border-t border-slate-800/80">
-                <p class="text-[11px] font-semibold text-slate-300 mb-2">Incluye:</p>
-                <ul class="text-[11px] text-slate-400 space-y-1.5">
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Hosting / dominio.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Reportes mensuales y semanales</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Metricas estadisticas de tu negocio.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Panel administrativo del negocio.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Soporte técnico 4 meses.</li>
-                </ul>
-              </div>
-            </div>
-            <button class="mt-6 w-full py-2.5 bg-slate-800 hover:bg-emerald-500 hover:text-black text-slate-200 text-xs font-semibold rounded-xl transition-all">Más información</button>
-          </div>
-
-          {/* Servicio 4 */}
-          <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all group">
-            <div>
-              <div class="overflow-hidden rounded-xl mb-4 border border-slate-800 group-hover:border-slate-700">
-                <Image src={service4} alt="Sistemas completos" class="w-full h-36 object-cover group-hover:scale-105 transition-transform duration-300" />
-              </div>
-              <h3 class="font-bold text-white text-base">Sistemas completos</h3>
-              <p class="text-xs text-slate-400 mt-1">Servicio completo software totalmente personalizado.</p>
-              
-              <div class="mt-4 pt-4 border-t border-slate-800/80">
-                <p class="text-[11px] font-semibold text-slate-300 mb-2">Incluye:</p>
-                <ul class="text-[11px] text-slate-400 space-y-1.5">
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Software totalmente personalizado.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Hosting / dominio.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Reportes mensuales, semanales y personalizados a tu negocio.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Metricas estadisticas de tu negocio.</li>
-                  <li class="flex items-center"><span class="text-emerald-400 mr-2">✓</span> Soporte técnico 6 meses.</li>
-                </ul>
-              </div>
-            </div>
-            <button class="mt-6 w-full py-2.5 bg-slate-800 hover:bg-emerald-500 hover:text-black text-slate-200 text-xs font-semibold rounded-xl transition-all">Más información</button>
-          </div>
-
-        </div>
-      </section>
-
-      {/* CONTACTS: Split Modern Form */}
-      <section id="contactos" class="py-16">
-        <div class="bg-linear-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-8 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          
-          <div class="lg:col-span-5 space-y-4">
-            <span class="text-xs font-mono text-emerald-400">CONTACTO DIRECTO</span>
-            <h2 class="text-3xl font-bold text-white">Escríbenos a nuestro correo</h2>
-            <p class="text-slate-400 text-sm">Estamos listos para impulsar el crecimiento digital de tu negocio hoy mismo.</p>
-            
-            <div class="pt-4 space-y-3">
-              <div class="flex items-center space-x-3 text-sm text-slate-300">
-                <span class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-emerald-400"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-	              <path d="M0 0h24v24H0z" fill="none" />
-	              <path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5z" />
-                </svg>
-                </span>
-                <span>jorgejano97@gmail.com</span>
-              </div>
-              <div class="flex items-center space-x-3 text-sm text-slate-300">
-                <span class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-emerald-400"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
-	              <path d="M0 0h24v24H0z" fill="none" />
-	              <path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01m-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28" />
-                </svg>
-                </span>
-                <span>71961698</span>
-                
-              </div>
-              <div class="flex items-center space-x-3 text-sm text-slate-300">
-                <span class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-emerald-400"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
-	              <path d="M0 0h20v20H0z" fill="none" />
-	              <path fill="currentColor" d="M9 12H1v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-8v2H9zm0-1H0V5c0-1.1.9-2 2-2h4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v6h-9V9H9zm3-8V2H8v1z" />
-                </svg>
-                </span>
-                <a href="https://portafoliojorgeja-o.onrender.com/" class=" py-2 px-4 bg-slate-900 rounded-lg text-emerald-400 hover:text-emerald-300">Portafolio/ ingresa aqui </a>
-              </div>
-              
-            </div>
-          </div>
-
-          <form class="lg:col-span-7 space-y-4" action="https://api.web3forms.com/submit" method="POST">
-            <div>
-              <input type="hidden" name="access_key" value="46de7082-5f9a-4090-bc94-f4b37fcd24eb" />
-              <label class="block text-xs font-medium text-slate-400 mb-1">Correo electrónico</label>
-              <input type="email" name="email" required placeholder="tu.correo@ejemplo.com" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500 transition-colors text-sm" />
-            </div>
-
-            <div>
-              <label class="block text-xs font-medium text-slate-400 mb-1">Mensaje</label>
-              <textarea rows="4" name="message" required placeholder="¿Cómo podemos ayudarte?" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500 transition-colors text-sm"></textarea>
-            </div>
-
-            <button type="submit" class="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-sm rounded-xl transition-all shadow-lg shadow-emerald-500/20">
-              Enviar Email
-            </button>
-          </form>
-
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer class="py-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs gap-4">
-        <div class="flex items-center space-x-3">
-          <Image src={logo} alt="DigitalDevTech" class="h-8 w-56 object-cover opacity-70" />
-          <span>Derechos reservados Digital-devtech @</span>
-        </div>
-        <div class="flex space-x-6">
-          <span>Email: jorgejano97@gmail.com</span>
-          <span>Teléfono: 71961698</span>
-        </div>
-      </footer>
-
-    </div>
-  </div>
-</Layout>
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initSite);
+      } else {
+        initSite();
+      }
+    })();
+  </script>
+</BaseLayout>

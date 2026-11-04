@@ -1,0 +1,95 @@
+---
+const servicios = [
+  {
+    icon: 'mobile_friendly',
+    tag: 'iOS & Android',
+    titulo: 'Apps Móviles a Medida',
+    texto:
+      'Tu app para iOS y Android con pagos QR, notificaciones y uso sin conexión. Publicamos por ti en Google Play y App Store.',
+    puntos: [
+      'Publicación garantizada en las tiendas',
+      'Cobros con QR y tarjeta listos',
+      'Funciona incluso sin internet',
+    ],
+    destacado: true,
+  },
+  {
+    icon: 'chat',
+    tag: 'WhatsApp QR',
+    titulo: 'Catálogos & WhatsApp Business',
+    texto:
+      'Convierte tus chats en máquinas automáticas de venta. Catálogo interactivo con carrito y pedido directo al WhatsApp de tu equipo.',
+    puntos: ['Stock siempre actualizado', 'Sin comisiones de pasarelas', 'El pedido llega solo al chat'],
+  },
+  {
+    icon: 'query_stats',
+    tag: 'Panel Web',
+    titulo: 'Sistemas ERP & Software de Gestión',
+    texto:
+      'Adiós a las hojas de Excel desactualizadas. Paneles hechos a la medida de tu operación: inventario, finanzas y facturación.',
+    puntos: ['Copias de seguridad automáticas', 'Módulos 100% personalizados', 'Cada usuario ve solo lo suyo'],
+  },
+  {
+    icon: 'rocket_launch',
+    tag: 'Alta Conversión',
+    titulo: 'Landing Pages Ultra Rápidas',
+    texto:
+      'Páginas optimizadas para pauta publicitaria. Cargan en menos de 1 segundo, con copy persuasivo y estructura pensada para captar clientes.',
+    puntos: ['Puntuación 95+ en Lighthouse', 'Diseño mobile-first adaptativo', 'Lista para anunciar el día uno'],
+  },
+];
+---
+
+<section class="w-full max-w-shell mx-auto px-gutter-mobile lg:px-gutter py-20 lg:py-28 relative" id="soluciones">
+  <div class="max-w-2xl">
+    <p class="eyebrow mb-4" data-reveal>Catálogo de soluciones</p>
+    <h2 class="font-display text-headline-lg-mobile lg:text-headline-lg text-on-surface" data-reveal>
+      Software a tu medida, <span class="text-on-surface-variant">sin listas eternalmente pendientes</span>
+    </h2>
+    <p class="text-body-lg text-on-surface-variant mt-4" data-reveal>
+      Elige el módulo que tu empresa necesita para vender más, trabajar en piloto automático y dejar de
+      depender de planillas.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12">
+    {
+      servicios.map((s, i) => (
+        <article
+          class={`group relative p-6 rounded-xl bg-surface-container-low border transition-colors duration-200 hover:border-[#34343a] ${
+            s.destacado ? 'border-accent/25' : 'border-outline-variant'
+          }`}
+          data-reveal
+          style={`--ddt-delay:${i * 80}ms`}
+        >
+          <div class="flex items-start justify-between gap-4">
+            <span class="w-9 h-9 rounded-lg bg-white/[0.04] border border-outline-variant flex items-center justify-center text-on-surface-variant group-hover:text-accent transition-colors">
+              <span class="material-symbols-outlined text-[17px]">{s.icon}</span>
+            </span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-outline">{s.tag}</span>
+          </div>
+
+          <h3 class="font-headline text-[19px] font-semibold text-on-surface mt-5 tracking-tight">{s.titulo}</h3>
+          <p class="text-[13px] text-on-surface-variant leading-relaxed mt-3 max-w-md">{s.texto}</p>
+
+          <ul class="mt-5 space-y-2.5">
+            {s.puntos.map((p) => (
+              <li class="flex items-start gap-2.5 text-[13px] text-on-surface">
+                <span class="material-symbols-outlined text-[14px] text-secondary-container mt-px">check</span>
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            class="group/link inline-flex items-center gap-1.5 mt-6 pt-5 border-t border-outline-variant/70 text-[13px] text-on-surface transition-colors hover:text-accent"
+            href="#contacto"
+          >
+            <span>Cotizar este servicio</span>
+            <span class="material-symbols-outlined text-[15px] group-hover/link:translate-x-0.5 transition-transform">arrow_forward</span>
+          </a>
+        </article>
+      ))
+    }
+  </div>
+</section>

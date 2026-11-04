@@ -1,0 +1,62 @@
+---
+const problemas = [
+  {
+    icon: 'inventory_2',
+    titulo: 'Carga de trabajo sin control',
+    texto:
+      'Pedidos que entran por WhatsApp, ventas anotadas en cuadernos y fichas de stock que nunca cuadran. La información vive en la cabeza de tu equipo.',
+    tag: 'Lo que pasa hoy',
+  },
+  {
+    icon: 'schedule',
+    titulo: 'Pasos tediosos que consumen el día',
+    texto:
+      'Copiar datos de un sistema a otro, generar reportes a mano y volver a escribir lo mismo cien veces. Eso no es trabajar, es depender de un papel.',
+    tag: 'Lo que más cansa',
+  },
+  {
+    icon: 'error',
+    titulo: 'Errores humanos en cada proceso',
+    texto:
+      'Un dato mal cargado, un inventario desactualizado y la pérdida se nota tarde. Cada error cuesta dinero y procesos o clientes que se detienen.',
+    tag: 'Lo que más cuesta',
+  },
+];
+---
+
+<section class="w-full max-w-shell mx-auto px-gutter-mobile lg:px-gutter py-20 lg:py-28 relative" id="el-problema">
+  <div class="max-w-2xl">
+    <p class="eyebrow mb-4" data-reveal>El problema del día a día</p>
+    <h2 class="font-display text-headline-lg-mobile lg:text-headline-lg text-on-surface" data-reveal>
+      ¿Te suena familiar?
+    </h2>
+    <p class="text-body-lg text-on-surface-variant mt-4" data-reveal>
+      Tu empresa no falla por falta de ganas: falla porque las herramientas no están a la altura de lo que
+      vendes. Esto es lo que pasa mientras tanto.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
+    {
+      problemas.map((p, i) => (
+        <article
+          class="group p-6 rounded-xl bg-surface-container-low border border-outline-variant hover:border-[#34343a] transition-colors duration-200"
+          data-reveal
+          style={`--ddt-delay:${i * 90}ms`}
+        >
+          <span class="w-9 h-9 rounded-lg bg-white/[0.04] border border-outline-variant flex items-center justify-center text-on-surface-variant group-hover:text-accent transition-colors">
+            <span class="material-symbols-outlined text-[17px]">{p.icon}</span>
+          </span>
+
+          <h3 class="font-headline text-[17px] font-semibold text-on-surface mt-5">{p.titulo}</h3>
+          <p class="text-[13px] text-on-surface-variant leading-relaxed mt-3">{p.texto}</p>
+
+          <div class="mt-5 inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-white/[0.04] border border-outline-variant">
+            <span class="material-symbols-outlined text-[12px] text-error">priority_high</span>
+            <span class="font-mono text-[10px] uppercase tracking-[0.1em] text-outline">{p.tag}</span>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

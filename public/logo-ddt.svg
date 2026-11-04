@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 96" width="128" height="96" role="img" aria-label="Digital Dev Tech">
+  <defs>
+    <linearGradient id="ddtStroke" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="128" y2="96">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#01f5a0" />
+    </linearGradient>
+    <linearGradient id="ddtFill" gradientUnits="userSpaceOnUse" x1="10" y1="20" x2="108" y2="76">
+      <stop offset="0%" stop-color="#6ff6ff" />
+      <stop offset="55%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#50ffaf" />
+    </linearGradient>
+  </defs>
+
+  <!-- Tile -->
+  <rect x="1" y="1" width="126" height="94" rx="24" fill="#0a0e17" stroke="url(#ddtStroke)" stroke-width="2" />
+
+  <!-- D -->
+  <path d="M16 26 H34 A22 22 0 0 1 34 70 H16 Z" fill="url(#ddtFill)" />
+  <!-- D -->
+  <path d="M44 26 H62 A22 22 0 0 1 62 70 H44 Z" fill="url(#ddtFill)" opacity="0.75" />
+  <!-- T -->
+  <path d="M72 26 H104" stroke="url(#ddtFill)" stroke-width="9" stroke-linecap="round" />
+  <path d="M88 26 V70" stroke="url(#ddtFill)" stroke-width="9" stroke-linecap="round" />
+
+  <!-- Nodo de circuito -->
+  <circle cx="112" cy="72" r="4" fill="#00f2fe" />
+  <circle cx="112" cy="72" r="8" fill="none" stroke="#00f2fe" stroke-opacity="0.35" stroke-width="1.5" />
+</svg>

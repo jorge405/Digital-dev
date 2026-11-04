@@ -1,0 +1,124 @@
+---
+---
+
+<section class="w-full max-w-shell mx-auto px-gutter-mobile lg:px-gutter py-20 lg:py-28 relative" id="contacto">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+    <!-- Columna de texto -->
+    <div class="lg:col-span-5">
+      <p class="eyebrow mb-4" data-reveal>Hablemos</p>
+      <h2
+        class="font-display text-headline-lg-mobile lg:text-headline-lg text-on-surface leading-[1.1]"
+        data-reveal
+      >
+        ¿Listo para construir el software que <span class="text-gradient-accent">transforma tu empresa</span>?
+      </h2>
+      <p class="text-body-lg text-on-surface-variant mt-5" data-reveal>
+        Cuéntanos qué necesitas. Miga y nuestro equipo te responden con un diagnóstico y una propuesta clara
+        en menos de 24 horas, sin compromiso.
+      </p>
+
+      <div class="mt-8 space-y-3" data-reveal>
+        <a
+          href="mailto:jorgejano97@gmail.com"
+          class="group flex items-center gap-3 p-4 rounded-xl bg-surface-container-low border border-outline-variant hover:border-[#34343a] transition-colors duration-200"
+        >
+          <span
+            class="w-9 h-9 rounded-lg bg-white/[0.04] border border-outline-variant flex items-center justify-center text-on-surface-variant group-hover:text-accent transition-colors"
+          >
+            <span class="material-symbols-outlined text-[17px]">mail</span>
+          </span>
+          <span>
+            <span class="block font-mono text-[10px] uppercase tracking-[0.12em] text-outline">Correo</span>
+            <span class="block text-[14px] text-on-surface">jorgejano97@gmail.com</span>
+          </span>
+        </a>
+
+        <a
+          href="https://wa.me/59171961698?text=Hola,%20quiero%20cotizar%20un%20proyecto%20de%20software"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex items-center gap-3 p-4 rounded-xl bg-surface-container-low border border-outline-variant hover:border-[#34343a] transition-colors duration-200"
+        >
+          <span
+            class="w-9 h-9 rounded-lg bg-white/[0.04] border border-outline-variant flex items-center justify-center text-on-surface-variant group-hover:text-accent transition-colors"
+          >
+            <span class="material-symbols-outlined text-[17px]">chat</span>
+          </span>
+          <span>
+            <span class="block font-mono text-[10px] uppercase tracking-[0.12em] text-outline">WhatsApp</span>
+            <span class="block text-[14px] text-on-surface">+591 71961698</span>
+          </span>
+        </a>
+      </div>
+
+      <p class="text-[12px] text-outline mt-6" data-reveal>
+        Respuesta personalizada en menos de 24 horas · Confidencialidad bajo acuerdo NDA
+      </p>
+    </div>
+
+    <!-- Formulario -->
+    <div class="lg:col-span-7" data-reveal>
+      <form id="main-contact-form" class="p-6 sm:p-8 rounded-2xl bg-surface-container-low border border-outline-variant relative overflow-hidden">
+        <div class="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-accent/[0.08] blur-[80px] pointer-events-none"></div>
+
+        <div class="relative grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+          <div class="sm:col-span-1">
+            <label for="client-name" class="block text-[12px] text-on-surface-variant mb-2">Nombre / Empresa</label>
+            <input
+              id="client-name"
+              type="text"
+              required
+              placeholder="Ej. Roberto Gómez - Empresa X"
+              class="w-full px-3.5 py-2.5 bg-surface-container-lowest text-on-surface placeholder-outline text-[13px] rounded-lg border border-outline-variant focus:border-[#34343a] focus:ring-1 focus:ring-[#34343a] transition-colors"
+            />
+          </div>
+
+          <div class="sm:col-span-1">
+            <label for="client-service" class="block text-[12px] text-on-surface-variant mb-2">Tipo de proyecto</label>
+            <select
+              id="client-service"
+              class="w-full px-3.5 py-2.5 bg-surface-container-lowest text-on-surface text-[13px] rounded-lg border border-outline-variant focus:border-[#34343a] focus:ring-1 focus:ring-[#34343a] transition-colors"
+            >
+              <option>App Móvil (iOS &amp; Android)</option>
+              <option>Catálogo con WhatsApp Business</option>
+              <option>Sistema ERP / Panel Web de Gestión</option>
+              <option>Landing Page de Alta Conversión</option>
+              <option>Automatización con IA</option>
+              <option>Consultoría técnica integral</option>
+            </select>
+          </div>
+
+          <div class="sm:col-span-2">
+            <label for="client-notes" class="block text-[12px] text-on-surface-variant mb-2"
+              >Detalles breves de lo que deseas construir</label
+            >
+            <textarea
+              id="client-notes"
+              rows="4"
+              placeholder="Necesito una app móvil para que mis clientes pidan productos y paguen con QR..."
+              class="w-full px-3.5 py-2.5 bg-surface-container-lowest text-on-surface placeholder-outline text-[13px] rounded-lg border border-outline-variant focus:border-[#34343a] focus:ring-1 focus:ring-[#34343a] transition-colors resize-none"
+            ></textarea>
+          </div>
+
+          <div class="sm:col-span-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mt-2">
+            <button
+              id="btn-whatsapp-submit"
+              type="button"
+              class="inline-flex items-center justify-center gap-2 h-10 px-5 rounded-lg bg-[#e5e5e6] text-[#08090a] text-[13px] font-medium hover:bg-white transition-colors duration-150"
+            >
+              <span class="material-symbols-outlined text-[16px]">chat</span>
+              <span>Enviar directo a WhatsApp (+591 71961698)</span>
+            </button>
+            <a
+              href="mailto:jorgejano97@gmail.com"
+              class="inline-flex items-center justify-center gap-2 h-10 px-4 rounded-lg border border-outline-variant text-[13px] text-on-surface-variant hover:text-on-surface hover:border-[#34343a] transition-colors duration-150"
+            >
+              <span class="material-symbols-outlined text-[16px]">mail</span>
+              <span>jorgejano97@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
